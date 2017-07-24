@@ -12,7 +12,7 @@
 
 #include "bsq/io.h"
 
-char	*bsq_getline(t_bsq *bsq)
+char	*bsq_getline(t_bsq *bsq, t_uint32 *size)
 {
 	return (NULL);
 }
