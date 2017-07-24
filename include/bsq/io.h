@@ -16,5 +16,6 @@
 # include "types.h"
 
 char	*bsq_getline(t_bsq *bsq, t_uint32 *size);
+char	*bsq_fgetline(t_bsq *bsq, t_uint32 size);
 
 #endif
