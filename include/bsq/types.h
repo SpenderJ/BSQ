@@ -13,6 +13,10 @@
 #ifndef FT_BSQ_TYPES_H
 # define FT_BSQ_TYPES_H
 
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+
 # include "utils.h"
 
 typedef unsigned int	t_uint32;

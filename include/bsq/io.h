@@ -13,5 +13,8 @@
 #ifndef FT_BSQ_IO_H
 # define FT_BSQ_IO_H
 
+# include "types.h"
+
+char	*get_line(t_bsq *bsq);
 
 #endif
