@@ -13,4 +13,8 @@
 #ifndef FT_BSQ_PARSER_H
 # define FT_BSQ_PARSER_H
 
+# include "types.h"
+
+int		bsq_parse(t_bsq *bsq, int fd);
+
 #endif

@@ -13,4 +13,8 @@
 #ifndef FT_BSQ_MATRIX_H
 # define FT_BSQ_MATRIX_H
 
+# include "bsq/types.h"
+
+int		bsq_eval(t_bsq *bsq, char *a, char *b);
+
 #endif

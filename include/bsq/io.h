@@ -15,6 +15,6 @@
 
 # include "types.h"
 
-char	*get_line(t_bsq *bsq);
+char	*bsq_getline(t_bsq *bsq);
 
 #endif
