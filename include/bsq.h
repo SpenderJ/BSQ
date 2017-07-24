@@ -13,4 +13,6 @@
 #ifndef FT_BSQ_H
 # define FT_BSQ_H
 
+# include "bsq/types.h"
+
 #endif

@@ -93,6 +93,8 @@ endif ()
 
 add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SOURCES} ${${PROJECT_NAME}_HEADERS})
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${${PROJECT_NAME}_HEADERS}")
+add_executable(${PROJECT_NAME}_exe ${${PROJECT_NAME}_SOURCES} ${${PROJECT_NAME}_HEADERS} cli.c)
+target_link_libraries(${PROJECT_NAME}_exe ${PROJECT_NAME})
 
 if (${PROJECT_NAME}_DEPS)
     foreach (DEP ${${PROJECT_NAME}_DEPS})
@@ -116,7 +118,7 @@ if (MSVC)
             PRIVATE /O$<$<CONFIG:Debug>:d>$<$<CONFIG:Release>:x>)
 else ()
     target_compile_options(${PROJECT_NAME}
-            PRIVATE -Wall -Werror -Wextra -fomit-frame-pointer
+            PRIVATE -Wall -Wextra -Wpadded -Werror -Wmain -fomit-frame-pointer
             PRIVATE -O$<$<CONFIG:Debug>:0 -g3>$<$<CONFIG:Release>:3>)
 endif ()
 
