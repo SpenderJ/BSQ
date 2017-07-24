@@ -13,6 +13,10 @@
 #ifndef FT_BSQ_H
 # define FT_BSQ_H
 
+# include "bsq/io.h"
+# include "bsq/matrix.h"
+# include "bsq/parser.h"
 # include "bsq/types.h"
+# include "bsq/utils.h"
 
 #endif
