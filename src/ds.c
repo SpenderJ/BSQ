@@ -12,29 +12,41 @@
 
 #include "bsq/ds.h"
 
-inline void		bsq_write_binary(t_u8 *matrix, t_u32 pos, t_bool data)
+inline void		matrix_set(t_u8 *matrix, t_u32 pos, t_bool data)
 {
 	if (data)
 		matrix[pos / 8] |= (1 << (pos % 8));
 }
 
-inline t_bool	bsq_read_binary(t_u8 *matrix, t_u32 pos)
+inline t_bool	matrix_get(t_u8 *matrix, t_u32 pos)
 {
 	return (t_bool)((matrix[pos / 8] >> (pos % 8)) & 1);
 }
 
-inline t_bool	bsq_lbuff_next(t_u16 i, t_lbuff **buff)
+inline t_bool	lbuff_alloca_next(t_u16 i, t_lbuf **buff)
 {
 	if (i > S_BUFF_SIZE)
 	{
-		BSQ_ASSERT((*buff)->next = malloc(sizeof(t_lbuff)), ALLOC_FAIL);
-		*buff = (*buff)->next;
+		BSQ_ASSERT((*buff)->next = malloc(sizeof(t_lbuf)), ALLOC_FAIL);
 		return (TRUE);
 	}
 	if (*buff == NULL)
 	{
-		BSQ_ASSERT(*buff = malloc(sizeof(t_lbuff)), ALLOC_FAIL);
+		BSQ_ASSERT(*buff = malloc(sizeof(t_lbuf)), ALLOC_FAIL);
 		return (TRUE);
 	}
 	return (FALSE);
+}
+
+inline void		lbuff_move_next(t_u32 *i, t_lbuf **buff)
+{
+	t_lbuf *prev;
+
+	if (++*i / 8 > S_BUFF_SIZE)
+	{
+		prev = *buff;
+		*buff = prev->next;
+		free(prev);
+		*i = 0;
+	}
 }

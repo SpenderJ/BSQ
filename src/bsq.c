@@ -22,7 +22,7 @@ void		bsq_square_check(t_bsq_info *info, t_u32 x, t_u32 y, t_u32 s)
 }
 
 void		bsq_solve_first(t_reader *reader, t_bsq_info *info, t_u32 *line,
-				t_lbuff *first)
+				t_lbuf *first)
 {
 	t_u32	i;
 	t_u32	j;
@@ -35,17 +35,12 @@ void		bsq_solve_first(t_reader *reader, t_bsq_info *info, t_u32 *line,
 	{
 		bsq_validate_char(info, bsq_peek(reader));
 		if (bsq_next(reader) == info->empty)
-			line[i] = min(bsq_read_binary(first->buff, j), min(prev, line[i ? i - 1 : 0])) + 1;
+			line[i] = min(matrix_get(first->buff, j), min(prev, line[i ? i - 1 : 0])) + 1;
 		else
 			line[i] = 0;
 		bsq_square_check(info, (t_u32)i, 0, line[i]);
 		prev = first->buff[j];
-		if (++j / 8 > S_BUFF_SIZE)
-		{
-			//free(first);
-			first = first->next;
-			j = 0;
-		}
+		lbuff_move_next(&j, &first);
 		++i;
 	}
 	BSQ_ASSERT(bsq_next(reader) == '\n', "Expected EOL");
@@ -81,7 +76,7 @@ void		bsq_solve_next(t_reader *reader, t_bsq_info *info, t_u32 *line)
 void		bsq_solve(t_reader *reader, t_bsq_info *info)
 {
 	t_u32	len;
-	t_lbuff	*start;
+	t_lbuf	*start;
 	t_u32	*line;
 
 	len = bsq_read_first(reader, info, &start);

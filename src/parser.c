@@ -60,23 +60,23 @@ inline t_bsq_info	bsq_read_info(t_reader *reader)
 }
 
 inline t_u32		bsq_read_first(t_reader *reader, t_bsq_info *info,
-						t_lbuff **first)
+						t_lbuf **first)
 {
-	t_lbuff	*buff;
+	t_lbuf	*buff;
 	t_u16	i;
 	t_u32	len;
 
 	buff = NULL;
 	i = 0;
-	bsq_lbuff_next(i, &buff);
+	lbuff_alloca_next(i, &buff);
 	*first = buff;
 	len = 0;
 	while (bsq_peek(reader) != '\n')
 	{
 		bsq_validate_char(info, bsq_peek(reader));
-		if (bsq_lbuff_next((t_u16)(i / 8), &buff))
+		if (lbuff_alloca_next((t_u16) (i / 8), &buff))
 			i = 0;
-		bsq_write_binary(buff->buff, i, (t_bool) (bsq_next(reader) == info->empty));
+		matrix_set(buff->buff, i, (t_bool) (bsq_next(reader) == info->empty));
 		i++;
 		len++;
 	}
