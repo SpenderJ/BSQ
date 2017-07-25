@@ -39,10 +39,11 @@ inline t_bsq_info	bsq_read_info(t_reader *reader)
 	t_u8		buff[13];
 	t_u8		i;
 	t_u8		j;
+	t_u8		c;
 
 	i = 0;
-	while (bsq_peek(reader) != '\n' && i < 13)
-		buff[i++] = bsq_next(reader);
+	while ((c = bsq_next(reader)) != '\n' && i < 13)
+		buff[i++] = c;
 	info.square = buff[--i];
 	info.obstacle = buff[--i];
 	info.empty = buff[--i];
@@ -54,7 +55,7 @@ inline t_bsq_info	bsq_read_info(t_reader *reader)
 	while (buff[j] && buff[j] >= '0' && buff[j] <= '9' && j < i)
 		info.height = info.height * 10 + (buff[j++] - '0');
 	BSQ_ASSERT(i == j, "wrong format -42\n");
-	BSQ_ASSERT(bsq_next(reader) == '\n', "wrong format -42\n");
+	BSQ_ASSERT(c == '\n', "wrong format -42\n");
 	bsq_validate_info(&info);
 	return (info);
 }
