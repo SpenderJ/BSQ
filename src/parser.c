@@ -11,73 +11,42 @@
 /* ************************************************************************** */
 
 #include "bsq/parser.h"
-#include "bsq/io.h"
-#include "bsq/matrix.h"
-#include "bsq/utils.h"
 
-static t_uint32	ft_atoi(const char *str)
+void				validate_bsq_info(t_bsq_info *info)
 {
-	t_uint32	val;
-
-	val = 0;
-	while (*str && *str >= '0' && *str <= '9')
-		val = val * 10 + (*str++ - 48);
-	return (val);
+	BSQ_ASSERT(info->height > 0,
+		"height is invalid\n");
+	BSQ_ASSERT(info->empty != 0,
+		"empty marker is missing\n");
+	BSQ_ASSERT(info->obstacle != 0,
+		"obstacle marker is missing\n");
+	BSQ_ASSERT(info->square != 0,
+		"square marker is missing\n");
+	BSQ_ASSERT(info->square != info->obstacle,
+		"Two markers have same identity\n");
+	BSQ_ASSERT(info->square != info->empty,
+		"Two markers have same identity\n");
 }
 
-int				bsq_parse_map(t_map *map, char *new, t_uint32 size)
+inline t_bsq_info	bsq_read_info(t_reader *reader)
 {
-	if (size < 4)
-		return (FAILURE);
-	map->x = (t_uint8)new[size - 1];
-	map->o = (t_uint8)new[size - 2];
-	map->d = (t_uint8)new[size - 3];
-	new[size - 3] = '\0';
-	if ((map->height = ft_atoi(new)) == 0)
-		return (FAILURE);
-	return (SUCCESS);
-}
+	t_bsq_info	info;
+	t_u8		buff[13];
+	t_u8		i;
+	t_u8		j;
 
-static int		check_line(t_bsq *bsq, char *str, t_uint32 size)
-{
-	t_uint32	count;
-
-	count = 0;
-	if (size <= 0 || str == NULL)
-		return (FAILURE);
-	while (*str && ++count && (*str == bsq->map.x || *str == bsq->map.o ||
-			*str == bsq->map.d))
-		;
-	if (count != size || *str != '\0')
-		return (FAILURE);
-	return (SUCCESS);
-}
-
-int				bsq_parse(t_bsq *bsq, int fd)
-{
-	t_uint32		c;
-	t_uint32		size;
-	char			*new;
-	char			*old;
-
-	c = 0;
-	bsq->in = (t_uint8)fd;
-	while ((new = bsq_getline(bsq, &size)) != NULL && c <= 1)
-	{
-		if (c == 0 && (bsq_parse_map(bsq, new, size)) == FAILURE)
-			return (FAILURE);
-		else if (c == 1 && (bsq->map.width = size) &&
-				(check_line(bsq, new, bsq->map.width)) == FAILURE)
-			return (FAILURE);
-		++c;
-	}
-	while ((old = new) != NULL && c++)
-		if ((new = bsq_fgetline(bsq, size)) == NULL)
-			break ;
-		else if ((check_line(bsq, new, bsq->map.width) == FAILURE) ||
-				(bsq_eval(bsq, old, new) == FAILURE))
-			return (FAILURE);
-	if (c != bsq->map.height)
-		return (FAILURE);
-	return (SUCCESS);
+	i = 0;
+	while (bsq_peek(reader) != '\n' && i < 13)
+		buff[i++] = bsq_next(reader);
+	info.square = buff[--i];
+	info.obstacle = buff[--i];
+	info.empty = buff[--i];
+	j = 0;
+	info.height = 0;
+	while (buff[j] && buff[j] >= '0' && buff[j] <= '9' && j < i)
+		info.height = info.height * 10 + (buff[j++] - '0');
+	BSQ_ASSERT(i == j, "wrong format -42\n");
+	BSQ_ASSERT(bsq_next(reader) == '\n', "wrong format -42\n");
+	validate_bsq_info(&info);
+	return (info);
 }

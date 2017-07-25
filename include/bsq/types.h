@@ -19,33 +19,23 @@
 
 # include "utils.h"
 
-typedef unsigned int	t_uint32;
-typedef unsigned short	t_uint16;
-typedef unsigned char	t_uint8;
+# define BUFF_SIZE (4096)
+# define TRUE (1)
+# define FALSE (0)
 
-typedef struct	s_square
-{
-	t_uint32	dummy;
-	t_uint32	x;
-	t_uint32	y;
-	t_uint32	m;
-}				t_square;
+typedef unsigned int	t_u32;
+typedef unsigned short	t_u16;
+typedef unsigned char	t_u8;
+typedef t_u8			t_bool;
 
-typedef struct	s_map
+typedef struct			s_bsq_info
 {
-	t_uint8		d;
-	t_uint8		o;
-	t_uint8		x;
-	t_uint32	width;
-	t_uint32	height;
-}				t_map;
-
-typedef struct	s_bsq
-{
-	t_square	square;
-	t_map		map;
-	t_uint8		in;
-	t_uint8		out;
-}				t_bsq;
+	t_u8	empty;
+	t_u8	obstacle;
+	t_u8	square;
+	t_u8	dummy;
+	t_u32	height;
+	t_u32	width;
+}						t_bsq_info;
 
 #endif

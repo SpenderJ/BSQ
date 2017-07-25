@@ -10,14 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 #include "bsq.h"
 
 int		main(int ac, char **av)
 {
-	t_bsq bsq = {.in = 0};
-	t_lbuff root = {&root, &root, 0, 0, 0};
-	printf("%s", bsq_read_infoline(&bsq, &root));
+	t_reader reader;
+	t_bsq_info info;
+
+	reader = bsq_reader(0);
+	info = bsq_read_info(&reader);
+	bsq_solve(&reader, &info);
 	return (0);
 }

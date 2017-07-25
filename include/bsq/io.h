@@ -15,23 +15,16 @@
 
 # include "types.h"
 
-# define BUFF_SIZE (4096)
-
-typedef	struct	s_lbuff
+typedef struct	s_reader
 {
-	struct s_lbuff	*prev;
-	struct s_lbuff	*next;
-	t_uint32		*buff;
-	t_uint16		size;
-	t_uint16		cursor;
-}				t_lbuff;
+	t_u8	buffer[BUFF_SIZE];
+	t_u16	i;
+	t_u16	len;
+	t_u8	fd;
+}				t_reader;
 
-char			*bsq_getline(t_bsq *bsq, t_uint32 *size);
-char			*bsq_fgetline(t_bsq *bsq, t_uint32 size);
-
-int				bsq_read_infoline(t_bsq *bsq, t_lbuff *root);
-t_uint32		*bsq_read_firstline(t_bsq *bsq, t_lbuff *root);
-t_uint32		*bsq_read_line(t_bsq *bsq, t_uint32 *size);
-
+t_reader		bsq_reader(t_u8 fd);
+t_u8			bsq_next(t_reader *reader);
+t_u8			bsq_peek(t_reader *reader);
 
 #endif

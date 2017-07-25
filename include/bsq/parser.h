@@ -14,8 +14,9 @@
 # define FT_BSQ_PARSER_H
 
 # include "types.h"
+# include "io.h"
 
-int		bsq_parse(t_bsq *bsq, int fd);
-int		bsq_parse_map(t_map *map, char *new, t_uint32 size);
+t_bsq_info	bsq_read_info(t_reader *reader);
+void		bsq_validate_char(t_bsq_info *info, char c);
 
 #endif

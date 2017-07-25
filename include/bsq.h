@@ -13,10 +13,12 @@
 #ifndef FT_BSQ_H
 # define FT_BSQ_H
 
+# include "bsq/ds.h"
 # include "bsq/io.h"
-# include "bsq/matrix.h"
 # include "bsq/parser.h"
 # include "bsq/types.h"
 # include "bsq/utils.h"
+
+void bsq_solve(t_reader *reader, t_bsq_info *info);
 
 #endif

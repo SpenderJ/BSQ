@@ -10,4 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "bsq/utils.h"
+#include "bsq/types.h"
 
+inline void		bsq_exit(char *msg, int size)
+{
+	write(2, msg, (size_t)size);
+	exit(1);
+}
+
+inline t_u32	min(t_u32 a, t_u32 b)
+{
+	if (a > b)
+		return (b);
+	return (a);
+}

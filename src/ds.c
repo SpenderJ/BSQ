@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   io.c                                               :+:      :+:    :+:   */
+/*   ds.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alucas- <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,45 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bsq/io.h"
 #include "bsq/ds.h"
 
-inline t_reader	bsq_reader(t_u8 fd)
+inline void		bsq_write_binary(t_u8 *matrix, t_u32 pos, t_bool data)
 {
-	t_reader reader;
-
-	reader.len = (t_u16)read(fd, reader.buffer, BUFF_SIZE);
-	reader.i = 0;
-	reader.fd = fd;
-	return (reader);
+	if (data)
+		matrix[pos / 8] |= (1 << (pos % 8));
 }
 
-void			try_read(t_reader *reader)
+inline t_bool	bsq_read_binary(t_u8 *matrix, t_u32 pos)
 {
-	if (reader->i >= reader->len)
+	return (t_bool)((matrix[pos / 8] >> (pos % 8)) & 1);
+}
+
+inline t_bool	bsq_lbuff_next(t_u16 i, t_lbuff **buff)
+{
+	if (*buff == NULL || i > S_BUFF_SIZE)
 	{
-		reader->len = (t_u16)read(reader->fd, reader->buffer, BUFF_SIZE);
-		reader->i = 0;
+		BSQ_ASSERT(*buff = malloc(sizeof(t_lbuff)), ALLOC_FAIL);
+		return (TRUE);
 	}
-}
-
-inline t_u8		bsq_next(t_reader *reader)
-{
-	t_u8 res;
-
-	try_read(reader);
-	if (reader->len)
-	{
-		res = reader->buffer[reader->i++];
-		try_read(reader);
-		return (res);
-	}
-	return ('\0');
-}
-
-inline t_u8		bsq_peek(t_reader *reader)
-{
-	if (reader->len)
-		return (reader->buffer[reader->i]);
-	return ('\0');
+	return (FALSE);
 }
