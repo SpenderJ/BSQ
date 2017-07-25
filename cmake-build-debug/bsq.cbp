@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="bsq"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="package_source">
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 package_source"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_utils">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/test_utils" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_utils"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_utils/fast">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/test_utils" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_utils/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_parser">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/test_parser" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_parser"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_parser/fast">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/test_parser" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_parser/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_types">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/test_types" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_types"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_types/fast">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/test_types" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_types/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="package">
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 package"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_matrix">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/test_matrix" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_matrix"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_matrix/fast">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/test_matrix" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_matrix/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bsq_exe">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/bsq_exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 bsq_exe"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bsq_exe/fast">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/bsq_exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 bsq_exe/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_io">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/test_io" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_io"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_io/fast">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/test_io" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_io/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_bsq">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/test_bsq" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_bsq"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_bsq/fast">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/test_bsq" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 test_bsq/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bsq">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/libbsq.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Users/juspende/BSQ_GitHub/src"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 bsq"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bsq/fast">
+				<Option output="/Users/juspende/BSQ_GitHub/cmake-build-debug/libbsq.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/juspende/BSQ_GitHub/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/juspende/BSQ_GitHub/include"/>
+					<Add directory="/Users/juspende/BSQ_GitHub/src"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/8.1.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 bsq/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/juspende/BSQ_GitHub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/juspende/BSQ_GitHub/cli.c">
+			<Option target="bsq_exe"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/include/bsq/io.h">
+			<Option target="bsq_exe"/>
+			<Option target="bsq"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/include/bsq/matrix.h">
+			<Option target="bsq_exe"/>
+			<Option target="bsq"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/include/bsq/parser.h">
+			<Option target="bsq_exe"/>
+			<Option target="bsq"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/include/bsq/types.h">
+			<Option target="bsq_exe"/>
+			<Option target="bsq"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/include/bsq/utils.h">
+			<Option target="bsq_exe"/>
+			<Option target="bsq"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/src/bsq.c">
+			<Option target="bsq_exe"/>
+			<Option target="bsq"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/src/io.c">
+			<Option target="bsq_exe"/>
+			<Option target="bsq"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/src/matrix.c">
+			<Option target="bsq_exe"/>
+			<Option target="bsq"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/src/parser.c">
+			<Option target="bsq_exe"/>
+			<Option target="bsq"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/src/types.c">
+			<Option target="bsq_exe"/>
+			<Option target="bsq"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/src/utils.c">
+			<Option target="bsq_exe"/>
+			<Option target="bsq"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/test/bsq.c">
+			<Option target="test_bsq"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/test/io.c">
+			<Option target="test_io"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/test/matrix.c">
+			<Option target="test_matrix"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/test/parser.c">
+			<Option target="test_parser"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/test/types.c">
+			<Option target="test_types"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/test/utils.c">
+			<Option target="test_utils"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/juspende/BSQ_GitHub/cmake/properties.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

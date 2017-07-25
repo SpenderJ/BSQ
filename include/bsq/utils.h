@@ -13,6 +13,12 @@
 #ifndef FT_BSQ_UTILS_H
 # define FT_BSQ_UTILS_H
 
-# define ALIGNED(t, x) t __attribute__((aligned(x)))
+# ifndef SUCCESS
+#  define SUCCESS (0)
+# endif
+
+# ifndef FAILURE
+#  define FAILURE (1)
+# endif
 
 #endif

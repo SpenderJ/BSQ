@@ -14,5 +14,6 @@
 
 int		bsq_eval(t_bsq *bsq, char *a, char *b)
 {
+
 	return (0);
 }
