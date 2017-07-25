@@ -21,7 +21,5 @@ inline void		bsq_exit(char *msg, int size)
 
 inline t_u32	min(t_u32 a, t_u32 b)
 {
-	if (a > b)
-		return (b);
-	return (a);
+	return (a < b ? a : b);
 }

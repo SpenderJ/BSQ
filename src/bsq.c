@@ -12,12 +12,13 @@
 
 #include "bsq.h"
 
-void		bsq_square_check(t_bsq_info *info, t_u32 x, t_u32 y, t_u32 s)
+inline void		bsq_square_check(t_bsq_info *info, t_u32 x, t_u32 y, t_u32 s)
 {
 	if (s > info->m)
 	{
 		info->x = x;
 		info->y = y;
+		info->m = s;
 	}
 }
 
@@ -27,17 +28,20 @@ void		bsq_solve_first(t_reader *reader, t_bsq_info *info, t_u32 *line,
 	t_u32	i;
 	t_u32	j;
 	t_u8	prev;
+	char c;
 
 	i = 0;
 	j = 0;
 	prev = 0;
 	while (i < info->width)
 	{
-		bsq_validate_char(info, bsq_peek(reader));
-		if (bsq_next(reader) == info->empty)
+		if ((c = bsq_next(reader)) == info->empty)
 			line[i] = min(matrix_get(first->buff, j), min(prev, line[i ? i - 1 : 0])) + 1;
 		else
+		{
+			bsq_validate_char(info, c);
 			line[i] = 0;
+		}
 		bsq_square_check(info, (t_u32)i, 0, line[i]);
 		prev = first->buff[j];
 		lbuff_move_next(&j, &first);
@@ -52,6 +56,7 @@ void		bsq_solve_next(t_reader *reader, t_bsq_info *info, t_u32 *line)
 	t_i32 i;
 	t_u32 tmp;
 	t_u32 prev;
+	char	c;
 
 	l = 1;
 	while (++l < info->height)
@@ -60,12 +65,14 @@ void		bsq_solve_next(t_reader *reader, t_bsq_info *info, t_u32 *line)
 		prev = 0;
 		while ((t_u32)++i < info->width)
 		{
-			bsq_validate_char(info, bsq_peek(reader));
 			tmp = line[i];
-			if (bsq_next(reader) == info->empty)
+			if ((c = bsq_next(reader)) == info->empty)
 				line[i] = min(line[i], min(line[i ? i - 1 : 0], prev)) + 1;
 			else
+			{
+				bsq_validate_char(info, c);
 				line[i] = 0;
+			}
 			bsq_square_check(info, (t_u32)i, l, line[i]);
 			prev = tmp;
 		}

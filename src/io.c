@@ -36,19 +36,12 @@ inline t_u8		bsq_next(t_reader *reader)
 {
 	t_u8 res;
 
+	res = reader->buffer[reader->i++];
 	bsq_try_read(reader);
-	if (reader->len)
-	{
-		res = reader->buffer[reader->i++];
-		bsq_try_read(reader);
-		return (res);
-	}
-	return ('\0');
+	return (res);
 }
 
 inline t_u8		bsq_peek(t_reader *reader)
 {
-	if (reader->len)
-		return (reader->buffer[reader->i]);
-	return ('\0');
+	return (reader->buffer[reader->i]);
 }
