@@ -24,6 +24,7 @@
 # define FALSE (0)
 
 typedef unsigned int	t_u32;
+typedef int				t_i32;
 typedef unsigned short	t_u16;
 typedef unsigned char	t_u8;
 typedef t_u8			t_bool;
@@ -33,9 +34,12 @@ typedef struct			s_bsq_info
 	t_u8	empty;
 	t_u8	obstacle;
 	t_u8	square;
-	t_u8	dummy;
+	t_u8	out;
 	t_u32	height;
 	t_u32	width;
+	t_u32	x;
+	t_u32	y;
+	t_u32	m;
 }						t_bsq_info;
 
 #endif

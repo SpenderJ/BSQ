@@ -15,9 +15,11 @@
 
 # include "types.h"
 # include "io.h"
+# include "ds.h"
 
-void		validate_bsq_info(t_bsq_info *info);
-t_bsq_info	bsq_read_info(t_reader *reader);
+void		bsq_validate_info(t_bsq_info *info);
 void		bsq_validate_char(t_bsq_info *info, char c);
+t_bsq_info	bsq_read_info(t_reader *reader);
+t_u32		bsq_read_first(t_reader *reader, t_bsq_info *info, t_lbuff **first);
 
 #endif

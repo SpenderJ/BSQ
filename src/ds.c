@@ -25,7 +25,13 @@ inline t_bool	bsq_read_binary(t_u8 *matrix, t_u32 pos)
 
 inline t_bool	bsq_lbuff_next(t_u16 i, t_lbuff **buff)
 {
-	if (*buff == NULL || i > S_BUFF_SIZE)
+	if (i > S_BUFF_SIZE)
+	{
+		BSQ_ASSERT((*buff)->next = malloc(sizeof(t_lbuff)), ALLOC_FAIL);
+		*buff = (*buff)->next;
+		return (TRUE);
+	}
+	if (*buff == NULL)
 	{
 		BSQ_ASSERT(*buff = malloc(sizeof(t_lbuff)), ALLOC_FAIL);
 		return (TRUE);

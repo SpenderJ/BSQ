@@ -119,7 +119,7 @@ if (MSVC)
 else ()
     target_compile_options(${PROJECT_NAME}
             PRIVATE -Werror -Wall -Wextra -fomit-frame-pointer
-            PRIVATE -O$<$<CONFIG:Debug>:0 -g3>$<$<CONFIG:Release>:2>)
+            PRIVATE -O$<$<CONFIG:Debug>:0 -g3>$<$<CONFIG:Release>:fast>)
 endif ()
 
 if (MSVC)
