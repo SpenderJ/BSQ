@@ -63,6 +63,7 @@ void		bsq_solve_2nd(t_reader *reader, t_bsq_info *info, t_u32 *line,
 		j++;
 		if (j > S_BUFF_SIZE)
 		{
+			free(first);
 			first = first->next;
 			j = 0;
 		}
@@ -109,4 +110,5 @@ void		bsq_solve(t_reader *reader, t_bsq_info *info)
 	BSQ_ASSERT(line = malloc(len * sizeof(t_u32)), ALLOC_FAIL);
 	bsq_solve_2nd(reader, info, line, start);
 	bsq_solve_next(reader, info, line);
+	free(line);
 }

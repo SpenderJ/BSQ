@@ -12,7 +12,7 @@
 
 #include "bsq/parser.h"
 
-void				validate_bsq_info(t_bsq_info *info)
+inline void			validate_bsq_info(t_bsq_info *info)
 {
 	BSQ_ASSERT(info->height > 0,
 		"height is invalid\n");

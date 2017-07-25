@@ -16,6 +16,7 @@
 # include "types.h"
 # include "io.h"
 
+void		validate_bsq_info(t_bsq_info *info);
 t_bsq_info	bsq_read_info(t_reader *reader);
 void		bsq_validate_char(t_bsq_info *info, char c);
 
