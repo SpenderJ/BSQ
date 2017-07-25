@@ -28,12 +28,12 @@ void		bsq_solve_first(t_reader *reader, t_bsq_info *info, t_u32 *line,
 	t_u32	i;
 	t_u32	j;
 	t_u8	prev;
-	char c;
+	char	c;
 
 	bsq_validate_char(info, (c = bsq_next(reader)));
-	line[0] = (t_u32) (c == info->empty);
+	line[0] = (t_u32)(c == info->empty);
 	i = 1;
-	j = 0;
+	j = 1;
 	prev = 0;
 	while (i < info->width)
 	{

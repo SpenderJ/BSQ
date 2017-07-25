@@ -72,15 +72,15 @@ inline t_u32		bsq_read_first(t_reader *reader, t_bsq_info *info,
 	lbuff_alloca_next(i, &buff);
 	*first = buff;
 	len = 0;
-	while ((c = bsq_peek(reader)) != '\n')
+	while ((c = bsq_next(reader)) != '\n')
 	{
 		bsq_validate_char(info, c);
 		if (lbuff_alloca_next((t_u16)(i / 8), &buff))
 			i = 0;
-		matrix_set(buff->buff, i, (t_bool) (bsq_next(reader) == info->empty));
+		matrix_set(buff->buff, i, (t_bool) (c == info->empty));
 		i++;
 		len++;
 	}
-	BSQ_ASSERT(bsq_next(reader) == '\n', "Expected EOL");
+	BSQ_ASSERT(c == '\n', "Expected EOL");
 	return (len);
 }
