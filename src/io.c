@@ -25,7 +25,7 @@ inline t_reader	bsq_reader(t_u8 fd)
 
 inline t_reader	*bsq_try_read(t_reader *reader)
 {
-	if (reader->i >= reader->len - 1)
+	if (reader->i >= reader->len)
 	{
 		reader->len = (t_u16)read(reader->fd, reader->buffer, BUFF_SIZE);
 		reader->i = 0;
@@ -36,9 +36,4 @@ inline t_reader	*bsq_try_read(t_reader *reader)
 inline t_u8		bsq_next(t_reader *reader)
 {
 	return bsq_try_read(reader)->buffer[reader->i++];
-}
-
-inline t_u8		bsq_peek(t_reader *reader)
-{
-	return (reader->buffer[reader->i]);
 }
