@@ -16,9 +16,8 @@
 
 int		main(int ac, char **av)
 {
-	t_uint32 size;
-
+	t_bsq bsq = {.in = 0};
 	t_lbuff root = {&root, &root, 0, 0, 0};
-	printf("%s", bsq_read_infoline(0, &size, &root));
+	printf("%s", bsq_read_infoline(&bsq, &root));
 	return (0);
 }

@@ -25,10 +25,10 @@ static t_uint32		matrix_3(t_uint32 *old, t_uint32 *new, t_uint32 i)
 
 int					bsq_eval(t_bsq *bsq, t_uint32 *old, t_uint32 *new)
 {
-	t_uint32	i;
+	int	i;
 
-	i = 0;
-	while (i < bsq->map.width)
+	i = -1;
+	while (++i < bsq->map.width)
 	{
 		if (i > 0 && new[i] != 0)
 			new[i] = new[i] + matrix_3(old, new, i);
@@ -39,7 +39,6 @@ int					bsq_eval(t_bsq *bsq, t_uint32 *old, t_uint32 *new)
 			bsq->square.x = i;
 			bsq->square.y = bsq->square.dummy;
 		}
-		++i;
 	}
 	return (SUCCESS);
 }

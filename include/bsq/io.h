@@ -21,7 +21,7 @@ typedef	struct	s_lbuff
 {
 	struct s_lbuff	*prev;
 	struct s_lbuff	*next;
-	char			*buff;
+	t_uint32		*buff;
 	t_uint16		size;
 	t_uint16		cursor;
 }				t_lbuff;
@@ -29,9 +29,9 @@ typedef	struct	s_lbuff
 char			*bsq_getline(t_bsq *bsq, t_uint32 *size);
 char			*bsq_fgetline(t_bsq *bsq, t_uint32 size);
 
-char			*bsq_read_infoline(int fd, t_uint32 *size, t_lbuff *root);
-t_uint32		*bsq_read_firstline(int fd, t_uint32 *size);
-t_uint32		*bsq_read_line(int fd, t_uint32 *size);
+int				bsq_read_infoline(t_bsq *bsq, t_lbuff *root);
+t_uint32		*bsq_read_firstline(t_bsq *bsq, t_lbuff *root);
+t_uint32		*bsq_read_line(t_bsq *bsq, t_uint32 *size);
 
 
 #endif

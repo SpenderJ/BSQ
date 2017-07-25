@@ -118,7 +118,7 @@ if (MSVC)
             PRIVATE /O$<$<CONFIG:Debug>:d>$<$<CONFIG:Release>:x>)
 else ()
     target_compile_options(${PROJECT_NAME}
-            PRIVATE -Wall -Wextra -Wpadded -Werror -Wmain -fomit-frame-pointer
+            PRIVATE -fomit-frame-pointer
             PRIVATE -O$<$<CONFIG:Debug>:0 -g3>$<$<CONFIG:Release>:3>)
 endif ()
 

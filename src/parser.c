@@ -25,15 +25,15 @@ static t_uint32	ft_atoi(const char *str)
 	return (val);
 }
 
-static int		fill_struct(t_bsq *bsq, char *new, t_uint32 size)
+int				bsq_parse_map(t_map *map, char *new, t_uint32 size)
 {
-	if (size <= 4)
+	if (size < 4)
 		return (FAILURE);
-	bsq->map.x = (t_uint8)new[size - 1];
-	bsq->map.o = (t_uint8)new[size - 2];
-	bsq->map.d = (t_uint8)new[size - 3];
+	map->x = (t_uint8)new[size - 1];
+	map->o = (t_uint8)new[size - 2];
+	map->d = (t_uint8)new[size - 3];
 	new[size - 3] = '\0';
-	if ((bsq->map.height = ft_atoi(new)) == 0)
+	if ((map->height = ft_atoi(new)) == 0)
 		return (FAILURE);
 	return (SUCCESS);
 }
@@ -64,7 +64,7 @@ int				bsq_parse(t_bsq *bsq, int fd)
 	bsq->in = (t_uint8)fd;
 	while ((new = bsq_getline(bsq, &size)) != NULL && c <= 1)
 	{
-		if (c == 0 && (fill_struct(bsq, new, size)) == FAILURE)
+		if (c == 0 && (bsq_parse_map(bsq, new, size)) == FAILURE)
 			return (FAILURE);
 		else if (c == 1 && (bsq->map.width = size) &&
 				(check_line(bsq, new, bsq->map.width)) == FAILURE)

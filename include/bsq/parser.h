@@ -16,5 +16,6 @@
 # include "types.h"
 
 int		bsq_parse(t_bsq *bsq, int fd);
+int		bsq_parse_map(t_map *map, char *new, t_uint32 size);
 
 #endif

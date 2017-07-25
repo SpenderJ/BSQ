@@ -10,9 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <tclDecls.h>
 #include "bsq/io.h"
+#include "bsq/parser.h"
 
-t_lbuff		*lbuff_new(char *buff, t_uint16 size)
+t_lbuff		*lbuff_new(t_uint32 *buff, t_uint16 size)
 {
 	t_lbuff *node;
 
@@ -35,7 +37,7 @@ t_lbuff		*lbuff_link(t_lbuff *node, t_lbuff *prev, t_lbuff *next)
 	return (node);
 }
 
-t_lbuff		*lbuff_insert_before(t_lbuff *node, char *buff, t_uint16 size)
+t_lbuff		*lbuff_insert_before(t_lbuff *node, t_uint32 *buff, t_uint16 size)
 {
 	t_lbuff *n;
 
@@ -44,46 +46,43 @@ t_lbuff		*lbuff_insert_before(t_lbuff *node, char *buff, t_uint16 size)
 	return (lbuff_link(n, node->prev, node));
 }
 
-t_lbuff		*lbuff_push(t_lbuff *self, char *buff, t_uint16 size)
+t_lbuff		*lbuff_push(t_lbuff *self, t_uint32 *buff, t_uint16 size)
 {
 	return (lbuff_insert_before(self, buff, size));
 }
 
-char		*bsq_read_infoline(int fd, t_uint32 *size, t_lbuff *root)
+int			bsq_read_infoline(t_bsq *bsq, t_lbuff *root)
 {
 	char		buff[BUFF_SIZE];
-	char		*pbuff;
 	short		readsize;
+	t_uint32	size;
+	short		i;
+	t_map		map;
 
-	if ((readsize = (t_uint16)read(fd, buff, BUFF_SIZE)) == -1)
-		return (NULL);
-	while (*size < readsize && buff[*size] != '\n')
-		if (buff[(*size)++] == '\0')
-			return (NULL);
-	if (*size >= readsize ||
-		(pbuff = malloc(sizeof(char) * (*size + 1))) == (NULL))
-		return (NULL);
-	root->size = (t_uint16)(readsize - *size);
-	if ((root->buff = malloc(sizeof(char) * (root->size + 1))) == NULL)
-		return (NULL);
-	fd = -1;
-	while (++fd < *size)
-		pbuff[fd] = buff[fd];
-	if (buff[fd] != '\n')
-		return (NULL);
-	pbuff[fd] = '\0';
-	while (++fd < readsize)
-		root->buff[fd - *size - 1] = buff[fd];
-	root->buff[fd - *size - 1] = '\0';
-	return (pbuff);
+	size = 0;
+	if ((readsize = (t_uint16)read(bsq->in, buff, BUFF_SIZE)) == -1)
+		return (FAILURE);
+	while (size < readsize && buff[size] != '\n')
+		if (buff[size++] == '\0')
+			return (FAILURE);
+	root->size = (t_uint16)(readsize - size);
+	if (size >= readsize || buff[i = (short)(size)] != '\n' ||
+		bsq_parse_map(&map, buff, size) == FAILURE ||
+		(root->buff = malloc(sizeof(t_uint32) * (root->size + 1))) == NULL)
+		return (FAILURE);
+	while (++i < readsize)
+		if (buff[i] == '\n')
+			root = lbuff_push(root, root->buff + i + 1, readsize - i - 1);
+		root->buff[i - size - 1] = buff[i] == map.d ? 1 : 0;
+	root->buff[i - size] = '\0';
 }
 
-t_uint32	*bsq_read_firstline(int fd, t_uint32 *size)
+t_uint32	*bsq_read_firstline(t_bsq *bsq, t_lbuff *root)
 {
 	return (NULL);
 }
 
-t_uint32	*bsq_read_line(int fd, t_uint32 *size)
+t_uint32	*bsq_read_line(t_bsq *bsq, t_uint32 *size)
 {
 	return (NULL);
 }
