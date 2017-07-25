@@ -15,6 +15,6 @@
 
 # include "bsq/types.h"
 
-int		bsq_eval(t_bsq *bsq, char *a, char *b);
+int		bsq_eval(t_bsq *bsq, t_uint32 *old, t_uint32 *new);
 
 #endif
