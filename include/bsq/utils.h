@@ -23,8 +23,8 @@
 
 # define BSQ_ASSERT(e, m) ((void)(((e)?(0):bsq_exit("Error: " m,sizeof(m)+6))))
 # define ALLOC_FAIL "alloc failure"
+# define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 void			bsq_exit(char *msg, int size);
-unsigned int	min(unsigned int a, unsigned int b);
 
 #endif

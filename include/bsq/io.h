@@ -24,7 +24,7 @@ typedef struct	s_reader
 }				t_reader;
 
 t_reader		bsq_reader(t_u8 fd);
-void			bsq_try_read(t_reader *reader);
+t_reader		*bsq_try_read(t_reader *reader);
 t_u8			bsq_next(t_reader *reader);
 t_u8			bsq_peek(t_reader *reader);
 
