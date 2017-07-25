@@ -30,7 +30,8 @@ void		bsq_solve_first(t_reader *reader, t_bsq_info *info, t_u32 *line,
 	t_u8	prev;
 	char c;
 
-	line[0] = 1;
+	bsq_validate_char(info, (c = bsq_next(reader)));
+	line[0] = (t_u32) (c == info->empty);
 	i = 1;
 	j = 0;
 	prev = 0;
@@ -62,7 +63,8 @@ void		bsq_solve_next(t_reader *reader, t_bsq_info *info, t_u32 *line)
 	l = 1;
 	while (++l < info->height)
 	{
-		line[0] = 1;
+		bsq_validate_char(info, (c = bsq_next(reader)));
+		line[0] = (t_u32) (c == info->empty);
 		i = 0;
 		prev = 0;
 		while (++i < info->width)
