@@ -16,7 +16,8 @@
 # include "types.h"
 # include "ds.h"
 
-typedef struct	s_matrix {
+typedef struct	s_matrix
+{
 	t_lbuf	*lbuf;
 	t_lbuf	*root;
 	t_u32	cursor;
