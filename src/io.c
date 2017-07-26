@@ -38,7 +38,9 @@ inline t_u8		bsq_next(t_reader *reader)
 	reader->len = (t_u16)rlen;
 	reader->buf[reader->len] = '\0';
 	reader->cursor = 0;
-	return (reader->buf[reader->cursor++]);
+	if (reader->len)
+		return (reader->buf[reader->cursor++]);
+	return ('\0');
 }
 
 inline t_writer	bsq_writer(void)

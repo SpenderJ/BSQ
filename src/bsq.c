@@ -47,7 +47,7 @@ t_bool		bsq_solve_2nd(void *data[2], t_u32 *line, t_lbuf *root,
 		else if ((line[x] = 0) || c != ((t_info *)data[1])->obst)
 			return (FALSE);
 		bsq_square_check(((t_info *)data[1]), (t_u32)x, 1, line[x]);
-		lbuf_move_next(&lx, ((prev = tmp) & 0) + 8, &root);
+		lbuf_move_next(&lx, (t_u8)(((prev = tmp) & 0) + 8), &root);
 	}
 	return ((t_bool)(bsq_next((t_reader *)data[0]) == '\n'));
 }
@@ -78,7 +78,7 @@ t_bool		bsq_solve_next(t_reader *rder, t_info *i, t_u32 *l, t_matrix *m)
 		if (bsq_next(rder) != '\n')
 			return (FALSE);
 	}
-	return (TRUE);
+	return ((t_bool)(bsq_next(rder) == '\0'));
 }
 
 t_bool		bsq_solve(t_reader *reader, t_info *info)
@@ -100,5 +100,5 @@ t_bool		bsq_solve(t_reader *reader, t_info *info)
 		return (FALSE);
 	free(line);
 	matrix_print(&m, info);
-	return (TRUE);
+	return ((t_bool)(info->width > 0));
 }
