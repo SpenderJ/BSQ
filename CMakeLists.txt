@@ -93,7 +93,7 @@ endif ()
 
 add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SOURCES} ${${PROJECT_NAME}_HEADERS})
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${${PROJECT_NAME}_HEADERS}")
-add_executable(${PROJECT_NAME}_exe ${${PROJECT_NAME}_SOURCES} ${${PROJECT_NAME}_HEADERS} cli.c)
+add_executable(${PROJECT_NAME}_exe ${${PROJECT_NAME}_SOURCES} ${${PROJECT_NAME}_HEADERS} src/cli.c)
 target_link_libraries(${PROJECT_NAME}_exe ${PROJECT_NAME})
 
 if (${PROJECT_NAME}_DEPS)

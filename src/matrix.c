@@ -12,10 +12,10 @@
 
 #include "bsq/compress.h"
 
-int		print_binary_matrix(t_u8 seg, t_info *info, t_u32 e, t_writer *writer)
+int			print_binary_matrix(t_u8 seg, t_info *info, t_u32 e, t_writer *writer)
 {
-	t_u8 i;
-	t_u32 max;
+	t_u8	i;
+	t_u32	max;
 
 	i = 0;
 	max = (info->height * info->width) - e;
@@ -29,11 +29,11 @@ int		print_binary_matrix(t_u8 seg, t_info *info, t_u32 e, t_writer *writer)
 	return (7);
 }
 
-int		print_repeat_matrix(t_u8 seg, t_info *info, t_u32 e, t_writer *writer)
+int			print_repeat_matrix(t_u8 seg, t_info *info, t_u32 e, t_writer *writer)
 {
-	t_u8 i;
-	t_bool val;
-	t_u8 len;
+	t_u8	i;
+	t_bool	val;
+	t_u8	len;
 
 	val = (t_bool) ((seg >> 6) & 1);
 	len = (t_u8) ((seg & 0x3F) + 7);
@@ -48,9 +48,9 @@ int		print_repeat_matrix(t_u8 seg, t_info *info, t_u32 e, t_writer *writer)
 
 void		matrix_print(t_matrix *matrix, t_info *info)
 {
-	t_u32 	i;
-	t_lbuf	*lbuf;
-	t_u32	e;
+	t_u32		i;
+	t_lbuf		*lbuf;
+	t_u32		e;
 	t_writer	writer;
 
 	writer = bsq_writer();

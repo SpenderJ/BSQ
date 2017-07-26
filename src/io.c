@@ -39,9 +39,10 @@ inline t_u8		bsq_next(t_reader *reader)
 	reader->cursor = 0;
 	return (reader->buf[reader->cursor++]);
 }
-inline t_writer	bsq_writer()
+
+inline t_writer	bsq_writer(void)
 {
-	t_writer	writer;
+	t_writer writer;
 
 	writer.cursor = 0;
 	return (writer);
@@ -49,13 +50,13 @@ inline t_writer	bsq_writer()
 
 inline void		bsq_idea(t_writer *writer)
 {
-	write(0 , writer->buf, writer->cursor);
+	write(1, writer->buf, writer->cursor);
+	writer->cursor = 0;
 }
 
-inline void		bsq_write(t_writer *writer, char c)
+inline void		bsq_write(t_writer *writer, t_u8 c)
 {
-	if (writer->cursor >= 2)
+	if (writer->cursor >= BUF_SIZE)
 		bsq_idea(writer);
 	writer->buf[writer->cursor++] = c;
 }
-

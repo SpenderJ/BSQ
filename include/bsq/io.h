@@ -32,8 +32,8 @@ typedef struct	s_writer
 	t_u16	cursor; 
 }				t_writer;
 
-extern t_writer	bsq_writer();
-extern void		bsq_write(t_writer *writer, char c);
+extern t_writer	bsq_writer(void);
+extern void		bsq_write(t_writer *writer, t_u8 c);
 extern void		bsq_idea(t_writer *writer);
 
 
