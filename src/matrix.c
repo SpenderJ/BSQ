@@ -12,7 +12,7 @@
 
 #include "bsq/compress.h"
 
-int			print_binary_matrix(t_u8 seg, t_info *info, t_u32 e, t_writer *writer)
+int			print_binary_matrix(t_u8 seg, t_info *info, t_u32 e, t_writer *wter)
 {
 	t_u8	i;
 	t_u32	max;
@@ -23,24 +23,24 @@ int			print_binary_matrix(t_u8 seg, t_info *info, t_u32 e, t_writer *writer)
 		max = 7;
 	while (i < max)
 	{
-		bsq_print_at((t_bool) ((seg >> ((i) % 7)) & 1), info, e + i, writer);
+		bsq_print_at((t_bool)((seg >> ((i) % 7)) & 1), info, e + i, wter);
 		i++;
 	}
 	return (7);
 }
 
-int			print_repeat_matrix(t_u8 seg, t_info *info, t_u32 e, t_writer *writer)
+int			print_repeat_matrix(t_u8 seg, t_info *info, t_u32 e, t_writer *wter)
 {
 	t_u8	i;
 	t_bool	val;
 	t_u8	len;
 
-	val = (t_bool) ((seg >> 6) & 1);
-	len = (t_u8) ((seg & 0x3F) + 7);
+	val = (t_bool)((seg >> 6) & 1);
+	len = (t_u8)((seg & 0x3F) + 7);
 	i = 0;
 	while (i < len)
 	{
-		bsq_print_at(val, info, e + i, writer);
+		bsq_print_at(val, info, e + i, wter);
 		i++;
 	}
 	return (len);
@@ -68,7 +68,7 @@ void		matrix_print(t_matrix *matrix, t_info *info)
 	bsq_idea(&writer);
 }
 
-inline void		bsq_print_at(t_bool val, t_info *info, t_u32 e, t_writer *writer)
+inline void	bsq_print_at(t_bool val, t_info *info, t_u32 e, t_writer *wter)
 {
 	t_u32 x;
 	t_u32 y;
@@ -77,11 +77,11 @@ inline void		bsq_print_at(t_bool val, t_info *info, t_u32 e, t_writer *writer)
 	y = e / info->width;
 	if (x <= info->x && y <= info->y &&
 		x >= (info->x - info->m + 1) && y >= (info->y - info->m + 1))
-		bsq_write(writer, info->square);
+		bsq_write(wter, info->square);
 	else if (val)
-		bsq_write(writer, info->empty);
+		bsq_write(wter, info->empty);
 	else
-		bsq_write(writer, info->obst);
+		bsq_write(wter, info->obst);
 	if (((e + 1) % info->width) == 0)
-		bsq_write(writer, '\n');
+		bsq_write(wter, '\n');
 }
