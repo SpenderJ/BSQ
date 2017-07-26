@@ -21,6 +21,7 @@
 #  define FAILURE (1)
 # endif
 
+# define UNUSED(x) ((void)(x))
 # define BSQ_ASSERT(e, m) ((void)(((e)?(0):bsq_exit("Error: " m,sizeof(m)+6))))
 # define ALLOC_FAIL "alloc failure"
 # define MIN(a, b) ((a) < (b) ? (a) : (b))
