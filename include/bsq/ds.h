@@ -20,7 +20,6 @@
 extern void		buf_binary_set(t_u8 *matrix, t_u32 pos);
 extern t_bool	buf_binary_get(t_u8 *matrix, t_u32 pos);
 
-
 typedef	struct	s_lbuff
 {
 	t_u8			buf[S_BUFF_SIZE];

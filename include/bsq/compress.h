@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef BSQ_COMPRESS_H
-#define BSQ_COMPRESS_H
+# define BSQ_COMPRESS_H
 
 # include "types.h"
 # include "ds.h"
@@ -25,18 +25,6 @@ typedef struct	s_matrix
 
 # define BINARY_MATRIX 0
 # define REPEAT_MATRIX 1
-
-/**
-** At each index of our array we have a 8 bits:
-** 1 bit: mode 
-**      - 0 for binary matrix mode
-**      - 1 for repeat matrix mode
-** Binary Matrix Mode:
-**   7 bits: 1 if empty, 0 if obstacle
-** Repeat Matrix Mode:
-**   1 bit: 1 if empty case repetition 0 if obstacle repetition
-**   6 bit: number of repetitions
-**/
 
 extern t_matrix	matrix();
 extern t_bool	matrix_write(t_matrix *matrix, t_bool value);

@@ -38,8 +38,8 @@ typedef struct			s_bsq_info
 	t_u32	x;
 	t_u32	y;
 	t_u32	m;
-	t_u32 	i0;
-	t_u32 	i1;
+	t_u32	i0;
+	t_u32	i1;
 	t_u8	i2;
 }						t_info;
 

@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BSQ_H
-# define FT_BSQ_H
+#ifndef BSQ_H
+# define BSQ_H
 
 # include "bsq/ds.h"
 # include "bsq/io.h"
