@@ -15,6 +15,6 @@
 
 inline void		bsq_exit(char *msg, int size)
 {
-	UNUSED(write(2, msg, (size_t)size));
+	UNUSED(size = (signed)write(2, msg, (size_t)size));
 	exit(1);
 }
