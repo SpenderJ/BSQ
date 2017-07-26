@@ -32,10 +32,10 @@ inline void		bsq_validate_info(t_info *info)
 inline t_info	bsq_read_info(t_reader *reader)
 {
 	t_info	info;
-	t_u8		buff[13];
-	t_u8		i;
-	t_u8		j;
-	t_u8		c;
+	t_u8	buff[13];
+	t_u8	i;
+	t_u8	j;
+	t_u8	c;
 
 	i = 0;
 	while ((c = bsq_next(reader)) != '\n' && i < 13)
@@ -56,34 +56,32 @@ inline t_info	bsq_read_info(t_reader *reader)
 	return (info);
 }
 
-inline t_u32	bsq_read_first(t_reader *reader, t_info *info, t_lbuf **first, t_matrix *matrix)
+inline t_u32	bsq_read_first(t_reader *reader, t_info *info, t_lbuf **first,
+					t_matrix *matrix)
 {
 	t_lbuf	*buff;
 	t_u16	lx;
-	t_u32	len;
-	char	c;
+	int		len;
+	t_u8	c;
 
 	buff = NULL;
 	lx = 0;
 	lbuf_alloca_next(lx, &buff);
 	*first = buff;
-	len = 0;
-	while ((c = bsq_next(reader)) != '\n')
+	len = -1;
+	while ((c = bsq_next(reader)) != '\n' && ++len)
 	{
-		if (lbuf_alloca_next((t_u16) (lx / 8), &buff))
+		if (lbuf_alloca_next((t_u16)(lx / 8), &buff))
 			lx = 0;
 		if (matrix_write(matrix, (t_bool)(c == info->empty)))
 		{
 			buf_binary_set(buff->buf, lx);
-			bsq_square_check(info, len, 0, 1);
+			bsq_square_check(info, (t_u32)len, 0, 1);
 		}
 		else
-		{
 			BSQ_ASSERT(c == info->obst, PARSE_ERR);
-		}
 		lx++;
-		len++;
 	}
 	BSQ_ASSERT(c == '\n', PARSE_EXPECT("EOL"));
-	return (len);
+	return ((t_u32)len);
 }
