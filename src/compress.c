@@ -98,7 +98,10 @@ int		print_repeat_matrix(t_u8 seg, t_info *info, t_u32 e)
 	len = (t_u8) ((seg & 0x3F) + 7);
 	i = 0;
 	while (i < len)
-		bsq_print_at(val, info, e + i++);
+	{
+		bsq_print_at(val, info, e + i);
+		i++;
+	}
 	return (len);
 }
 
@@ -121,6 +124,6 @@ void		matrix_print(t_matrix *matrix, t_info *info)
 			e += print_binary_matrix(curr, info, e);
 		else if (mode == REPEAT_MATRIX)
 			e += print_repeat_matrix(curr, info, e);
-		lbuf_move_next(&i, 7, &lbuf);
+		lbuf_move_next(&i, 1, &lbuf);
 	}
 }

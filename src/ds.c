@@ -29,6 +29,7 @@ inline t_bool	lbuf_alloca_next(t_u16 i, t_lbuf **buff)
 	if (i > S_BUFF_SIZE)
 	{
 		BSQ_ASSERT((*buff)->next = malloc(sizeof(t_lbuf)), ALLOC_FAIL);
+		*buff = (*buff)->next;
 		return (TRUE);
 	}
 	if (*buff == NULL)
