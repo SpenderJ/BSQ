@@ -17,9 +17,9 @@
 # include "ds.h"
 
 typedef struct	s_bsq_matrix {
-	t_lbuf *buff;
-	t_lbuf *start;
-	t_u32 cursor;
+	t_lbuf	*buff;
+	t_lbuf	*start;
+	t_u32	cursor;
 }				t_bsq_matrix;
 
 # define BINARY_MATRIX 0
@@ -34,7 +34,7 @@ typedef struct	s_bsq_matrix {
 **   7 bits: 1 if empty, 0 if obstacle
 ** Repeat Matrix Mode:
 **   1 bit: 1 if empty case repetition 0 if obstacle repetition
-**   6 bit: number of repeatitions
+**   6 bit: number of repetitions
 **/
 
 void			bsq_matrix_write(t_bsq_matrix *matrix, t_bool value);

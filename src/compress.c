@@ -31,7 +31,7 @@ void	bsq_matrix_write(t_bsq_matrix *matrix, t_bool value)
 
 	if (matrix->cursor % 7 == 0)
 		try_change_mode(matrix, value);
-	mode = (matrix->buff->buff[matrix->cursor / 7] >> 8) & 1;
+	mode = (t_bool)((matrix->buff->buff[matrix->cursor / 7] >> 8) & 1);
 	if (mode == BINARY_MATRIX)
 	{
 		if (value)
@@ -49,10 +49,12 @@ void	bsq_matrix_write(t_bsq_matrix *matrix, t_bool value)
 		matrix->buff->buff[matrix->cursor / 7]++;
 	}
 }
+
 void	bsq_matrix_free(t_bsq_matrix *matrix, t_u32 to)
 {
 
 }
+
 void	bsq_matrix_print(t_bsq_matrix *matrix, t_bsq_info *info)
 {
 
