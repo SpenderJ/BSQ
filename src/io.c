@@ -12,17 +12,18 @@
 
 #include "bsq/io.h"
 
-inline t_reader	bsq_reader(t_u8 fd)
+inline t_reader	*bsq_reader(t_reader *reader, t_u8 fd)
 {
-	t_reader	reader;
 	ssize_t		rlen;
 
-	BSQ_ASSERT(fd >= 0, IO_FAIL);
-	BSQ_ASSERT((rlen = read(fd, reader.buf, BUF_SIZE)) != -1, IO_FAIL);
-	reader.len = (t_u16)rlen;
-	reader.buf[reader.len] = '\0';
-	reader.cursor = 0;
-	reader.fd = fd;
+	if (fd < 0)
+		return (NULL);
+	if ((rlen = read(fd, reader->buf, BUF_SIZE)) <= 0)
+		return (NULL);
+	reader->len = (t_u16)rlen;
+	reader->buf[reader->len] = '\0';
+	reader->cursor = 0;
+	reader->fd = fd;
 	return (reader);
 }
 

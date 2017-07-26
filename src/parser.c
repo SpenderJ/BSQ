@@ -13,19 +13,25 @@
 #include "bsq/parser.h"
 #include "bsq.h"
 
-inline void		bsq_validate_info(t_info *info)
+inline t_info	*bsq_validate_info(t_info *info)
 {
-	BSQ_ASSERT(info->height > 0, PARSE_ERR);
-	BSQ_ASSERT(info->empty != 0, PARSE_ERR);
-	BSQ_ASSERT(info->obst != 0, PARSE_ERR);
-	BSQ_ASSERT(info->square != 0, PARSE_ERR);
-	BSQ_ASSERT(info->square != info->obst, PARSE_ERR);
-	BSQ_ASSERT(info->square != info->empty, PARSE_ERR);
+	if (info->height <= 0)
+		return (NULL);
+	if (info->empty == 0)
+		return (NULL);
+	if (info->obst == 0)
+		return (NULL);
+	if (info->square == 0)
+		return (NULL);
+	if (info->square == info->obst)
+		return (NULL);
+	if (info->square == info->empty)
+		return (NULL);
+	return (info);
 }
 
-inline t_info	bsq_read_info(t_reader *reader)
+inline t_info	*bsq_info_ctor(t_info *info, t_reader *reader)
 {
-	t_info	info;
 	t_u8	buff[13];
 	t_u8	i;
 	t_u8	j;
@@ -34,23 +40,22 @@ inline t_info	bsq_read_info(t_reader *reader)
 	i = 0;
 	while ((c = bsq_next(reader)) != '\n' && i < 13)
 		buff[i++] = c;
-	info.square = buff[--i];
-	info.obst = buff[--i];
-	info.empty = buff[--i];
-	info.x = 0;
-	info.y = 0;
-	info.m = 0;
+	info->square = buff[--i];
+	info->obst = buff[--i];
+	info->empty = buff[--i];
+	info->x = 0;
+	info->y = 0;
+	info->m = 0;
 	j = 0;
-	info.height = 0;
+	info->height = 0;
 	while (buff[j] && buff[j] >= '0' && buff[j] <= '9' && j < i)
-		info.height = info.height * 10 + (buff[j++] - '0');
-	BSQ_ASSERT(i == j, PARSE_ERR);
-	BSQ_ASSERT(c == '\n', PARSE_ERR);
-	bsq_validate_info(&info);
-	return (info);
+		info->height = info->height * 10 + (buff[j++] - '0');
+	if (i != j || c != '\n')
+		return (NULL);
+	return bsq_validate_info(info);
 }
 
-inline t_u32	bsq_read_first(t_reader *reader, t_info *info, t_lbuf **first,
+inline int		bsq_read_first(t_reader *reader, t_info *info, t_lbuf **first,
 					t_matrix *matrix)
 {
 	t_lbuf	*buff;
@@ -76,6 +81,5 @@ inline t_u32	bsq_read_first(t_reader *reader, t_info *info, t_lbuf **first,
 			BSQ_ASSERT(c == info->obst, PARSE_ERR);
 		lx++;
 	}
-	BSQ_ASSERT(c == '\n', PARSE_EXPECT("EOL"));
-	return ((t_u32)len);
+	return (c != '\n' ? -1 : len);
 }

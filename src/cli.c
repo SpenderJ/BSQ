@@ -12,16 +12,31 @@
 
 #include "bsq.h"
 
+#define SNS(s) (s),(sizeof(s)-1)
+
 int		main(int ac, char **av)
 {
 	t_reader	reader;
-	t_info	info;
+	t_info		info;
+	t_u8		i;
 
-	if (ac >= 2)
-		reader = bsq_reader((t_u8)open(av[1], O_RDONLY));
+	i = 0;
+	if (ac > 1)
+		while (++i < ac)
+		{
+			if (bsq_reader(&reader, (t_u8)open(av[i], O_RDONLY)) == NULL ||
+				bsq_info_ctor(&info, &reader) == NULL ||
+				bsq_solve(&reader, &info) == FALSE)
+				write(1, SNS(PARSE_ERR));
+			if (i < ac - 1)
+				write(1, SNS("\n"));
+		}
 	else
-		reader = bsq_reader(0);
-	info = bsq_read_info(&reader);
-	bsq_solve(&reader, &info);
-	return (0);
+	{
+		if (bsq_reader(&reader, 0) == NULL ||
+			bsq_info_ctor(&info, &reader) == NULL ||
+			bsq_solve(&reader, &info) == FALSE)
+			write(1, SNS(PARSE_ERR));
+	}
+	return (EXIT_SUCCESS);
 }

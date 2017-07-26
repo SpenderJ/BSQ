@@ -18,9 +18,9 @@
 # include "ds.h"
 # include "compress.h"
 
-extern void		bsq_validate_info(t_info *info);
-extern t_info	bsq_read_info(t_reader *reader);
-extern t_u32	bsq_read_first(t_reader *reader, t_info *info, t_lbuf **first,
+extern t_info	*bsq_validate_info(t_info *info);
+extern t_info	*bsq_info_ctor(t_info *info, t_reader *reader);
+extern int		bsq_read_first(t_reader *reader, t_info *info, t_lbuf **first,
 					t_matrix *matrix);
 
 #endif
