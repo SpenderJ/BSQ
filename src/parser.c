@@ -6,7 +6,7 @@
 /*   By: juspende <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/25 00:16:08 by juspende          #+#    #+#             */
-/*   Updated: 2017/07/25 02:22:28 by juspende         ###   ########.fr       */
+/*   Updated: 2017/07/26 16:37:49 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ inline t_info	bsq_read_info(t_reader *reader)
 	return (info);
 }
 
-inline t_u32	bsq_read_first(t_reader *reader, t_info *info,
-						t_lbuf **first)
+inline t_u32	bsq_read_first(t_reader *reader, t_info *info, t_lbuf **first, t_matrix *matrix)
 {
 	t_lbuf	*buff;
 	t_u16	i;
@@ -72,7 +71,7 @@ inline t_u32	bsq_read_first(t_reader *reader, t_info *info,
 	{
 		if (lbuf_alloca_next((t_u16) (i / 8), &buff))
 			i = 0;
-		if (c == info->empty)
+		if (matrix_write(matrix, c == info->empty))
 			buf_binary_set(buff->buf, i);
 		else
 			BSQ_ASSERT(c == info->obstacle, PARSE_ERROR);

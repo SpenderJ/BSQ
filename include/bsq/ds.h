@@ -6,7 +6,7 @@
 /*   By: alucas- <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 23:05:36 by alucas-           #+#    #+#             */
-/*   Updated: 2017/07/24 23:05:37 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/07/26 16:55:14 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ typedef	struct	s_lbuff
 }				t_lbuf;
 
 extern t_bool	lbuf_alloca_next(t_u16 i, t_lbuf **buff);
-extern void		lbuf_move_next(t_u32 *i, t_lbuf **buff);
+extern void		lbuf_move_next(t_u32 *i, t_u8 div, t_lbuf **buff);
 
 #endif

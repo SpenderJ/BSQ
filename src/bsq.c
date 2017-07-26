@@ -6,7 +6,7 @@
 /*   By: alucas- <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 13:30:19 by alucas-           #+#    #+#             */
-/*   Updated: 2017/07/24 13:31:45 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/07/26 17:07:35 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void			bsq_solve_first(t_reader *reader, t_info *info, t_u32 *line,
 		}
 		bsq_square_check(info, (t_u32)i, 0, line[i]);
 		prev = root->buf[j];
-		lbuf_move_next(&j, &root);
+		lbuf_move_next(&j, 8, &root);
 		++i;
 	}
 	BSQ_ASSERT(bsq_next(reader) == '\n', PARSE_EXPECT("EOL"));
@@ -91,11 +91,14 @@ void			bsq_solve(t_reader *reader, t_info *info)
 	t_u32	len;
 	t_lbuf	*start;
 	t_u32	*line;
+	t_matrix m;
 
-	len = bsq_read_first(reader, info, &start);
+	m = matrix();
+	len = bsq_read_first(reader, info, &start, &m);
 	info->width = len;
 	BSQ_ASSERT(line = malloc(len * sizeof(t_u32)), ALLOC_FAIL);
 	bsq_solve_first(reader, info, line, start);
 	bsq_solve_next(reader, info, line);
 	free(line);
+	matrix_print(&m, info);
 }

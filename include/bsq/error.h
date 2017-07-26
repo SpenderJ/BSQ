@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alucas- <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 23:06:42 by alucas-           #+#    #+#             */
-/*   Updated: 2017/07/24 23:06:43 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/07/26 16:35:06 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@
 #  define IO_FAIL "Error: Input/Output failure.\n"
 # endif
 
-extern void	bsq_exit(char *msg, int size);
+void	bsq_exit(char *msg, int size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: alucas- <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 23:05:22 by alucas-           #+#    #+#             */
-/*   Updated: 2017/07/25 00:17:01 by juspende         ###   ########.fr       */
+/*   Updated: 2017/07/26 15:33:40 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "bsq/parser.h"
 # include "bsq/types.h"
 # include "bsq/utils.h"
+# include "bsq/compress.h"
 
 extern void	bsq_square_check(t_info *info, t_u32 x, t_u32 y, t_u32 s);
 void		bsq_solve(t_reader *reader, t_info *info);

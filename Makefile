@@ -6,28 +6,28 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/26 14:33:05 by pguthaus          #+#    #+#              #
-#    Updated: 2017/07/26 15:28:19 by pguthaus         ###   ########.fr        #
+#    Updated: 2017/07/26 17:10:28 by dde-jesu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bsq
 CC = gcc# C compiler
-CCFLAGS = -Wall -Werror -Wextra# C compiler flags
+CCFLAGS = -Wall -Werror -Wextra -g# C compiler flags
 SRC_DIR = src# Base sources directory
 OUT_DIR = out# Output directory
 INC_DIR = include
 LIB = $(OUT_DIR)/lib$(NAME).a
 
 # Paths
-SRCS = bsq.c ds.c io.c parser.c error.c
+SRCS = bsq.c ds.c io.c parser.c error.c compress.c
 OBJS = $(SRCS:.c=.o)
 OBJS_PATH = $(addprefix $(OUT_DIR)/, $(OBJS))
 SRCS_PATH = $(addprefix $(SRC_DIR)/, $(SRCS))
 
 all: $(NAME)
 
-$(NAME): $(LIB)
-	gcc $(CCFLAGS) -I$(INC_DIR) cli.c -o $(NAME) $(LIB)
+$(NAME):
+	gcc $(CCFLAGS) -I$(INC_DIR) cli.c $(SRCS_PATH) -o $(NAME)
 
 $(OBJS_PATH): $(SRCS_PATH) $(OUT_DIR)
 	$(CC) -c $< -o $@ $(CCFLAGS) -I$(INC_DIR)

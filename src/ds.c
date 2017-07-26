@@ -6,7 +6,7 @@
 /*   By: alucas- <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 13:30:19 by alucas-           #+#    #+#             */
-/*   Updated: 2017/07/24 13:31:51 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/07/26 16:54:49 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ inline t_bool	lbuf_alloca_next(t_u16 i, t_lbuf **buff)
 	return (FALSE);
 }
 
-inline void		lbuf_move_next(t_u32 *i, t_lbuf **buff)
+inline void		lbuf_move_next(t_u32 *i, t_u8 div, t_lbuf **buff)
 {
 	t_lbuf *prev;
 
-	if (++*i / 8 > S_BUFF_SIZE)
+	if ((++*i) / div > S_BUFF_SIZE)
 	{
 		prev = *buff;
 		*buff = prev->next;
