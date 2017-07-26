@@ -39,3 +39,21 @@ inline t_u8		bsq_next(t_reader *reader)
 	reader->cursor = 0;
 	return reader->buf[reader->cursor++];
 }
+
+inline void		bsq_print_at(t_bool val, t_info *info, t_u32 e)
+{
+	t_u32 x;
+	t_u32 y;
+
+	x = e % info->width;
+	y = e / info->width;
+	if (x <= info->x && y <= info->y &&
+		x >= (info->x - info->m + 1) && y >= (info->y - info->m + 1))
+		write(1, &info->square, 1);
+	else if (val)
+		write(1, &info->empty, 1);
+	else
+		write(1, &info->obstacle, 1);
+	if (((e + 1) % info->width) == 0)
+		write(1, "\n", 1);
+}

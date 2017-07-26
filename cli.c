@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <printf.h>
 #include "bsq.h"
 
 int		main(int ac, char **av)
@@ -24,6 +23,5 @@ int		main(int ac, char **av)
 		reader = bsq_reader(0);
 	info = bsq_read_info(&reader);
 	bsq_solve(&reader, &info);
-	printf("%d x:%d y:%d\n", info.m, info.x, info.y);
 	return (0);
 }

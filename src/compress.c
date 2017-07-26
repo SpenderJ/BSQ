@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include "bsq/compress.h"
-#include <printf.h>
-
+#include "bsq/io.h"
 
 t_matrix matrix()
 {
@@ -33,7 +32,7 @@ void	try_change_mode(t_matrix *matrix, t_bool value)
 	if ((value && current == 0x7F) || (!value && current == 0x00))
 	{
 		matrix->lbuf->buf[(matrix->cursor / 7) - 1]
-			|= ((REPEAT_MATRIX << 8) | (value << 7));
+			= (t_u8) ((REPEAT_MATRIX << 7) | (value << 6));
 		matrix->cursor = (matrix->cursor / 7 - 1) * 7 + 1;
 	}
 }
@@ -47,7 +46,7 @@ inline t_bool	matrix_write(t_matrix *matrix, t_bool value)
 		matrix->lbuf->buf[matrix->cursor / 7] = 0;
 		try_change_mode(matrix, value);
 	}
-	mode = (t_bool)((matrix->lbuf->buf[matrix->cursor / 7] >> 8) & 1);
+	mode = (t_bool)((matrix->lbuf->buf[matrix->cursor / 7] >> 7) & 1);
 	if (mode == BINARY_MATRIX)
 	{
 		if (value)
@@ -59,17 +58,48 @@ inline t_bool	matrix_write(t_matrix *matrix, t_bool value)
 		if (value != ((matrix->lbuf->buf[matrix->cursor / 7] >> 6) & 1)
 			|| (matrix->lbuf->buf[matrix->cursor / 7] & 0x3F) == 0x3F)
 		{
-			matrix->cursor = (matrix->cursor / 7 + 1) * 7 + 1;
+			matrix->cursor = (matrix->cursor / 7 + 1) * 7;
 			matrix_write(matrix, value);
-		}
-		matrix->lbuf->buf[matrix->cursor / 7]++;
+		} else
+			matrix->lbuf->buf[matrix->cursor / 7]++;
 	}
-	if (lbuf_alloca_next(matrix->cursor / 7, &(matrix->lbuf)))
+	if (lbuf_alloca_next((t_u16)(matrix->cursor / 7), &(matrix->lbuf)))
 	{
 		matrix->lbuf->buf[0] = 0;
 		matrix->cursor = 0;
 	}
 	return (value);
+}
+
+int		print_binary_matrix(t_u8 seg, t_info *info, t_u32 e)
+{
+	t_u8 i;
+	t_u32 max;
+
+	i = 0;
+	max = (info->height * info->width) - e;
+	if (max > 7)
+		max = 7;
+	while (i < max)
+	{
+		bsq_print_at((t_bool) ((seg >> ((i) % 7)) & 1), info, e + i);
+		i++;
+	}
+	return (7);
+}
+
+int		print_repeat_matrix(t_u8 seg, t_info *info, t_u32 e)
+{
+	t_u8 i;
+	t_bool val;
+	t_u8 len;
+
+	val = (t_bool) ((seg >> 6) & 1);
+	len = (t_u8) ((seg & 0x3F) + 7);
+	i = 0;
+	while (i < len)
+		bsq_print_at(val, info, e + i++);
+	return (len);
 }
 
 void		matrix_print(t_matrix *matrix, t_info *info)
@@ -78,28 +108,19 @@ void		matrix_print(t_matrix *matrix, t_info *info)
 	t_lbuf *lbuf;
 	t_bool mode;
 	t_u8 curr;
+	t_u32 e;
 
 	i = 0;
+	e = 0;
 	lbuf = matrix->root;
-	while (lbuf)
+	while (e < info->height * info->width)
 	{
-		curr = lbuf->buf[i / 7];
-		mode = (t_bool)((curr >> 8) & 1);
+		curr = lbuf->buf[i];
+		mode = (t_bool)((curr >> 7) & 1);
 		if (mode == BINARY_MATRIX)
-		{
-			if ((curr >> (i % 7)) & 1)
-				write(1, &info->empty, 1);
-			else
-				write(1, &info->obstacle, 1);
-		}
+			e += print_binary_matrix(curr, info, e);
 		else if (mode == REPEAT_MATRIX)
-		{
-			mode = (curr >> 7) & 1;
-			curr &= 0x3F;
-			i = ((i / 7 + 1) * 7);
-		}
+			e += print_repeat_matrix(curr, info, e);
 		lbuf_move_next(&i, 7, &lbuf);
-		if (i % info->width == 0)
-			write(1, "\n", 1);
 	}
 }

@@ -25,5 +25,6 @@ typedef struct	s_reader
 
 extern t_reader	bsq_reader(t_u8 fd);
 extern t_u8		bsq_next(t_reader *reader);
+extern void		bsq_print_at(t_bool val, t_info *info, t_u32 e);
 
 #endif

@@ -22,64 +22,65 @@ inline void		bsq_square_check(t_info *info, t_u32 x, t_u32 y, t_u32 s)
 	}
 }
 
-void			bsq_solve_first(t_reader *reader, t_info *info, t_u32 *line,
-					t_lbuf *root)
+void			bsq_solve_2nd(t_reader *reader, t_info *info, t_u32 *line,
+							  t_lbuf *root, t_matrix *matrix)
 {
-	t_u32	i;
-	t_u32	j;
+	t_u32	x;
+	t_u32	lx;
 	t_u8	prev;
 	t_u8	c;
 
 	BSQ_ASSERT((c = bsq_next(reader)) == info->obstacle || c == info->empty,
 		PARSE_ERROR);
-	line[0] = (t_u32)(c == info->empty);
-	i = 1;
-	j = 1;
-	prev = 0;
-	while (i < info->width)
+	matrix_write(matrix, (t_bool) (c == info->empty));
+	x = 0;
+	lx = 0;
+	prev = buf_binary_get(root->buf, lx++);
+	line[x++] = (t_u32)(c == info->empty);
+	while (x < info->width)
 	{
-		if ((c = bsq_next(reader)) == info->empty)
-			line[i] = MIN(buf_binary_get(root->buf, j), MIN(prev, line[i - 1])) + 1;
+		if (matrix_write(matrix, (t_bool) ((c = bsq_next(reader)) == info->empty)))
+			line[x] = MIN(buf_binary_get(root->buf, lx), MIN(prev, line[x - 1])) + 1;
 		else
 		{
 			BSQ_ASSERT(c == info->obstacle, PARSE_ERROR);
-			line[i] = 0;
+			line[x] = 0;
 		}
-		bsq_square_check(info, (t_u32)i, 0, line[i]);
-		prev = root->buf[j];
-		lbuf_move_next(&j, 8, &root);
-		++i;
+		bsq_square_check(info, (t_u32)x, 1, line[x]);
+		prev = buf_binary_get(root->buf, lx);
+		lbuf_move_next(&lx, 8, &root);
+		++x;
 	}
 	BSQ_ASSERT(bsq_next(reader) == '\n', PARSE_EXPECT("EOL"));
 }
 
-void			bsq_solve_next(t_reader *reader, t_info *info, t_u32 *line)
+void			bsq_solve_next(t_reader *reader, t_info *info, t_u32 *line, t_matrix *matrix)
 {
-	t_u32	l;
-	t_u32	i;
+	t_u32	y;
+	t_u32	x;
 	t_u32	tmp;
 	t_u32	prev;
 	t_u8	c;
 
-	l = 1;
-	while (++l < info->height)
+	y = 1;
+	while (++y < info->height)
 	{
 		BSQ_ASSERT((c = bsq_next(reader)) == info->obstacle || c == info->empty,
 			PARSE_ERROR);
-		line[0] = (t_u32) (c == info->empty);
-		i = 0;
-		prev = 0;
-		while (++i < info->width)
+		prev = line[0];
+		x = 0;
+		line[x] = matrix_write(matrix, (t_bool)(c == info->empty));
+		while (++x < info->width)
 		{
-			tmp = line[i];
-			if ((c = bsq_next(reader)) == info->empty)
-				line[i] = MIN(tmp, MIN(line[i - 1], prev)) + 1;
+			tmp = line[x];
+			if (matrix_write(matrix, (t_bool)((c = bsq_next(reader)) == info->empty)))
+				line[x] = MIN(tmp, MIN(line[x - 1], prev)) + 1;
 			else
 			{
 				BSQ_ASSERT(c == info->obstacle, PARSE_ERROR);
-				line[i] = 0;
+				line[x] = 0;
 			}
-			bsq_square_check(info, (t_u32)i, l, line[i]);
+			bsq_square_check(info, x, y, line[x]);
 			prev = tmp;
 		}
 		BSQ_ASSERT(bsq_next(reader) == '\n', PARSE_EXPECT("EOL"));
@@ -97,8 +98,8 @@ void			bsq_solve(t_reader *reader, t_info *info)
 	len = bsq_read_first(reader, info, &start, &m);
 	info->width = len;
 	BSQ_ASSERT(line = malloc(len * sizeof(t_u32)), ALLOC_FAIL);
-	bsq_solve_first(reader, info, line, start);
-	bsq_solve_next(reader, info, line);
+	bsq_solve_2nd(reader, info, line, start, &m);
+	bsq_solve_next(reader, info, line, &m);
 	free(line);
 	matrix_print(&m, info);
 }

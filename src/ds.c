@@ -14,6 +14,8 @@
 
 inline void		buf_binary_set(t_u8 *matrix, t_u32 pos)
 {
+	if (pos % 8 == 0)
+		matrix[pos / 8] = 0;
 	matrix[pos / 8] |= (1 << (pos % 8));
 }
 
