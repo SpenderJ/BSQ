@@ -6,7 +6,7 @@
 /*   By: alucas- <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 13:30:19 by alucas-           #+#    #+#             */
-/*   Updated: 2017/07/26 17:07:35 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2017/07/26 23:26:54 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,10 @@ t_bool		bsq_solve_2nd(void *data[2], t_u32 *line, t_lbuf *root,
 		if (matrix_write(matrix, (t_bool)((c = bsq_next((t_reader *)data[0]))
 			== ((t_info *)data[1])->empty)))
 			line[x] = MIN(tmp, MIN(prev, line[x - 1])) + 1;
-		else if (c != ((t_info *)data[1])->obst)
+		else if ((line[x] = 0) || c != ((t_info *)data[1])->obst)
 			return (FALSE);
-		else
-			line[x] = 0;
 		bsq_square_check(((t_info *)data[1]), (t_u32)x, 1, line[x]);
-		prev = tmp;
-		lbuf_move_next(&lx, 8, &root);
+		lbuf_move_next(&lx, ((prev = tmp) & 0) + 8, &root);
 	}
 	return ((t_bool)(bsq_next((t_reader *)data[0]) == '\n'));
 }
@@ -59,8 +56,7 @@ t_bool		bsq_solve_next(t_reader *rder, t_info *i, t_u32 *l, t_matrix *m)
 {
 	t_u32	y;
 	t_u32	x;
-	t_u32	tmp;
-	t_u32	prev;
+	t_u32	prev[2];
 	t_u8	c;
 
 	y = 1;
@@ -69,19 +65,15 @@ t_bool		bsq_solve_next(t_reader *rder, t_info *i, t_u32 *l, t_matrix *m)
 		if ((c = bsq_next(rder)) != i->obst && c != i->empty)
 			return (FALSE);
 		x = 0;
-		prev = l[0];
+		prev[0] = l[0];
 		l[x] = matrix_write(m, (t_bool)(c == i->empty));
-		while (++x < i->width)
+		while (++x < i->width && ((prev[1] = l[x]) + 1))
 		{
-			tmp = l[x];
 			if (matrix_write(m, (t_bool)((c = bsq_next(rder)) == i->empty)))
-				l[x] = MIN(tmp, MIN(prev, l[x - 1])) + 1;
-			else if (c != i->obst)
+				l[x] = MIN(prev[1], MIN(prev[0], l[x - 1])) + 1;
+			else if ((l[x] = 0) || c != i->obst)
 				return (FALSE);
-			else
-				l[x] = 0;
-			bsq_square_check(i, x, y, l[x]);
-			prev = tmp;
+			bsq_square_check(i, x, y, l[x] + ((prev[0] = prev[1]) & 0));
 		}
 		if (bsq_next(rder) != '\n')
 			return (FALSE);

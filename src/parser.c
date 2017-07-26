@@ -6,7 +6,7 @@
 /*   By: juspende <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/25 00:16:08 by juspende          #+#    #+#             */
-/*   Updated: 2017/07/26 16:37:49 by dde-jesu         ###   ########.fr       */
+/*   Updated: 2017/07/26 23:07:22 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ inline t_info	*bsq_info_ctor(t_info *info, t_reader *reader)
 		info->height = info->height * 10 + (buff[j++] - '0');
 	if (i != j || c != '\n')
 		return (NULL);
-	return bsq_validate_info(info);
+	return (bsq_validate_info(info));
 }
 
 inline int		bsq_read_first(t_reader *reader, t_info *info, t_lbuf **first,
