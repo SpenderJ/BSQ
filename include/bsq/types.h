@@ -19,12 +19,11 @@
 
 # include "utils.h"
 
-# define BUFF_SIZE (4096)
+# define BUFF_SIZE (8192)
 # define TRUE (1)
 # define FALSE (0)
 
 typedef unsigned int	t_u32;
-typedef int				t_i32;
 typedef unsigned short	t_u16;
 typedef unsigned char	t_u8;
 typedef t_u8			t_bool;
