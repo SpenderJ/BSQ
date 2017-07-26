@@ -6,7 +6,7 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/26 14:33:05 by pguthaus          #+#    #+#              #
-#    Updated: 2017/07/26 21:41:51 by juspende         ###   ########.fr        #
+#    Updated: 2017/07/26 22:10:36 by dde-jesu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS =		src/bsq.c		\
 			src/ds.c		\
 			src/io.c		\
 			src/parser.c	\
+			src/matrix.c \
 			src/error.c		\
 			src/compress.c	\
 			src/cli.c

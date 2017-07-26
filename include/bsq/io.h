@@ -6,7 +6,7 @@
 /*   By: alucas- <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 23:05:36 by alucas-           #+#    #+#             */
-/*   Updated: 2017/07/24 23:05:37 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/07/26 22:08:23 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ typedef struct	s_reader
 
 extern t_reader	bsq_reader(t_u8 fd);
 extern t_u8		bsq_next(t_reader *reader);
-extern void		bsq_print_at(t_bool val, t_info *info, t_u32 e);
+
+typedef struct	s_writer
+{
+	t_u8	buf[BUF_SIZE];
+	t_u16	cursor; 
+}				t_writer;
+
+extern t_writer	bsq_writer();
+extern void		bsq_write(t_writer *writer, char c);
+extern void		bsq_idea(t_writer *writer);
+
 
 #endif
