@@ -30,6 +30,7 @@ typedef struct	s_matrix
 extern t_matrix	matrix();
 extern t_bool	matrix_write(t_matrix *matrix, t_bool value);
 void			matrix_print(t_matrix *matrix, t_info *info);
-extern void		bsq_print_at(t_bool val, t_info *info, t_u32 e, t_writer *writer);
+extern void		bsq_print_at(t_bool val, t_info *info, t_u32 e,
+					t_writer *writer);
 
 #endif
