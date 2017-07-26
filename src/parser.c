@@ -44,8 +44,8 @@ inline t_info	bsq_read_info(t_reader *reader)
 	info.height = 0;
 	while (buff[j] && buff[j] >= '0' && buff[j] <= '9' && j < i)
 		info.height = info.height * 10 + (buff[j++] - '0');
-	BSQ_ASSERT(i == j, "wrong format -42\n");
-	BSQ_ASSERT(c == '\n', "wrong format -42\n");
+	BSQ_ASSERT(i == j, PARSE_ERR);
+	BSQ_ASSERT(c == '\n', PARSE_ERR);
 	bsq_validate_info(&info);
 	return (info);
 }
