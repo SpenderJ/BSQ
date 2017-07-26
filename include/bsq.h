@@ -19,7 +19,7 @@
 # include "bsq/types.h"
 # include "bsq/utils.h"
 
-void	bsq_square_check(t_bsq_info *info, t_u32 x, t_u32 y, t_u32 s);
-void	bsq_solve(t_reader *reader, t_bsq_info *info);
+extern void	bsq_square_check(t_info *info, t_u32 x, t_u32 y, t_u32 s);
+void		bsq_solve(t_reader *reader, t_info *info);
 
 #endif

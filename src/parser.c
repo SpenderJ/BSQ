@@ -12,7 +12,7 @@
 
 #include "bsq/parser.h"
 
-inline void			bsq_validate_info(t_bsq_info *info)
+inline void		bsq_validate_info(t_info *info)
 {
 	BSQ_ASSERT(info->height > 0,
 		"height is invalid\n");
@@ -28,9 +28,9 @@ inline void			bsq_validate_info(t_bsq_info *info)
 		"Two markers have same identity\n");
 }
 
-inline t_bsq_info	bsq_read_info(t_reader *reader)
+inline t_info	bsq_read_info(t_reader *reader)
 {
-	t_bsq_info	info;
+	t_info	info;
 	t_u8		buff[13];
 	t_u8		i;
 	t_u8		j;
@@ -55,7 +55,7 @@ inline t_bsq_info	bsq_read_info(t_reader *reader)
 	return (info);
 }
 
-inline t_u32		bsq_read_first(t_reader *reader, t_bsq_info *info,
+inline t_u32	bsq_read_first(t_reader *reader, t_info *info,
 						t_lbuf **first)
 {
 	t_lbuf	*buff;
@@ -65,15 +65,15 @@ inline t_u32		bsq_read_first(t_reader *reader, t_bsq_info *info,
 
 	buff = NULL;
 	i = 0;
-	lbuff_alloca_next(i, &buff);
+	lbuf_alloca_next(i, &buff);
 	*first = buff;
 	len = 0;
 	while ((c = bsq_next(reader)) != '\n')
 	{
-		if (lbuff_alloca_next((t_u16)(i / 8), &buff))
+		if (lbuf_alloca_next((t_u16) (i / 8), &buff))
 			i = 0;
 		if (c == info->empty)
-			matrix_set(buff->buf, i);
+			buf_binary_set(buff->buf, i);
 		else
 			BSQ_ASSERT(c == info->obstacle, PARSE_ERROR);
 		i++;

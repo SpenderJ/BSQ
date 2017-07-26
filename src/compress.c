@@ -12,7 +12,7 @@
 
 #include "bsq/compress.h"
 
-void	try_change_mode(t_bsq_matrix *matrix, t_bool value)
+void	try_change_mode(t_matrix *matrix, t_bool value)
 {
 	t_u8 current;
 
@@ -25,7 +25,7 @@ void	try_change_mode(t_bsq_matrix *matrix, t_bool value)
 	}
 }
 
-void	bsq_matrix_write(t_bsq_matrix *matrix, t_bool value)
+inline void	matrix_write(t_matrix *matrix, t_bool value)
 {
 	t_bool mode;
 
@@ -41,22 +41,22 @@ void	bsq_matrix_write(t_bsq_matrix *matrix, t_bool value)
 	else if (mode == REPEAT_MATRIX)
 	{
 		if (value != ((matrix->lbuf->buf[matrix->cursor / 7] >> 7) & 1)
-				|| (matrix->lbuf->buf[matrix->cursor / 7] & 0x3F) == 0x3F)
+			|| (matrix->lbuf->buf[matrix->cursor / 7] & 0x3F) == 0x3F)
 		{
 			matrix->cursor = (matrix->cursor / 7 + 1) * 7;
-			bsq_matrix_write(matrix, value);
+			matrix_write(matrix, value);
 		}
 		matrix->lbuf->buf[matrix->cursor / 7]++;
 	}
 }
 
-void	bsq_matrix_free(t_bsq_matrix *matrix, t_u32 to)
+void		matrix_free(t_matrix *matrix, t_u32 to)
 {
 	UNUSED(matrix);
 	UNUSED(to);
 }
 
-void	bsq_matrix_print(t_bsq_matrix *matrix, t_bsq_info *info)
+void		matrix_print(t_matrix *matrix, t_info *info)
 {
 	UNUSED(matrix);
 	UNUSED(info);

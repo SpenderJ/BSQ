@@ -27,6 +27,6 @@
 #  define IO_FAIL "Error: Input/Output failure.\n"
 # endif
 
-void	bsq_exit(char *msg, int size);
+extern void	bsq_exit(char *msg, int size);
 
 #endif

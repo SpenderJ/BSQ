@@ -23,7 +23,7 @@ typedef struct	s_reader
 	t_u8	fd;
 }				t_reader;
 
-t_reader		bsq_reader(t_u8 fd);
-t_u8			bsq_next(t_reader *reader);
+extern t_reader	bsq_reader(t_u8 fd);
+extern t_u8		bsq_next(t_reader *reader);
 
 #endif

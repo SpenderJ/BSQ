@@ -16,11 +16,11 @@
 # include "types.h"
 # include "ds.h"
 
-typedef struct	s_bsq_matrix {
+typedef struct	s_matrix {
 	t_lbuf	*lbuf;
 	t_lbuf	*root;
 	t_u32	cursor;
-}				t_bsq_matrix;
+}				t_matrix;
 
 # define BINARY_MATRIX 0
 # define REPEAT_MATRIX 1
@@ -37,8 +37,8 @@ typedef struct	s_bsq_matrix {
 **   6 bit: number of repetitions
 **/
 
-void			bsq_matrix_write(t_bsq_matrix *matrix, t_bool value);
-void			bsq_matrix_free(t_bsq_matrix *matrix, t_u32 to);
-void			bsq_matrix_print(t_bsq_matrix *matrix, t_bsq_info *info);
+extern void		matrix_write(t_matrix *matrix, t_bool value);
+void			matrix_free(t_matrix *matrix, t_u32 to);
+void			matrix_print(t_matrix *matrix, t_info *info);
 
 #endif

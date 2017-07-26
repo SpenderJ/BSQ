@@ -17,8 +17,8 @@
 # include "io.h"
 # include "ds.h"
 
-void		bsq_validate_info(t_bsq_info *info);
-t_bsq_info	bsq_read_info(t_reader *reader);
-t_u32		bsq_read_first(t_reader *reader, t_bsq_info *info, t_lbuf **first);
+extern void		bsq_validate_info(t_info *info);
+extern t_info	bsq_read_info(t_reader *reader);
+extern t_u32	bsq_read_first(t_reader *reader, t_info *info, t_lbuf **first);
 
 #endif
