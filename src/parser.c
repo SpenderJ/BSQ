@@ -73,12 +73,12 @@ inline t_u32		bsq_read_first(t_reader *reader, t_bsq_info *info,
 		if (lbuff_alloca_next((t_u16)(i / 8), &buff))
 			i = 0;
 		if (c == info->empty)
-			matrix_set(buff->buff, i);
+			matrix_set(buff->buf, i);
 		else
 			BSQ_ASSERT(c == info->obstacle, PARSE_ERROR);
 		i++;
 		len++;
 	}
-	BSQ_ASSERT(c == '\n', "Expected EOL");
+	BSQ_ASSERT(c == '\n', PARSE_EXPECT("EOL"));
 	return (len);
 }

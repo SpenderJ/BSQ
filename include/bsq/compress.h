@@ -17,8 +17,8 @@
 # include "ds.h"
 
 typedef struct	s_bsq_matrix {
-	t_lbuf	*buff;
-	t_lbuf	*start;
+	t_lbuf	*lbuf;
+	t_lbuf	*root;
 	t_u32	cursor;
 }				t_bsq_matrix;
 

@@ -22,8 +22,9 @@
 #  define ALLOC_FAIL "\n"
 # else
 #  define PARSE_ERROR "Error: Unexpected char found in the proceeded map.\n"
-#  define PARSE_EXPECT "Error: Unexpected char found int the proceeded map.\n"
+#  define PARSE_EXPECT(x) "Error: Expected char '" x "' in the proceeded map.\n"
 #  define ALLOC_FAIL "Error: Allocation failure.\n"
+#  define IO_FAIL "Error: Input/Output failure.\n"
 # endif
 
 void	bsq_exit(char *msg, int size);

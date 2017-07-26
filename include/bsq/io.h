@@ -17,8 +17,8 @@
 
 typedef struct	s_reader
 {
-	t_u8	buffer[BUFF_SIZE + 1];
-	t_u16	i;
+	t_u8	buf[BUF_SIZE + 1];
+	t_u16	cursor;
 	t_u16	len;
 	t_u8	fd;
 }				t_reader;

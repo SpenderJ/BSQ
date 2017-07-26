@@ -23,7 +23,7 @@ inline void		bsq_square_check(t_bsq_info *info, t_u32 x, t_u32 y, t_u32 s)
 }
 
 void			bsq_solve_first(t_reader *reader, t_bsq_info *info, t_u32 *line,
-					t_lbuf *first)
+					t_lbuf *root)
 {
 	t_u32	i;
 	t_u32	j;
@@ -39,18 +39,18 @@ void			bsq_solve_first(t_reader *reader, t_bsq_info *info, t_u32 *line,
 	while (i < info->width)
 	{
 		if ((c = bsq_next(reader)) == info->empty)
-			line[i] = MIN(matrix_get(first->buff, j), MIN(prev, line[i - 1])) + 1;
+			line[i] = MIN(matrix_get(root->buf, j), MIN(prev, line[i - 1])) + 1;
 		else
 		{
 			BSQ_ASSERT(c == info->obstacle, PARSE_ERROR);
 			line[i] = 0;
 		}
 		bsq_square_check(info, (t_u32)i, 0, line[i]);
-		prev = first->buff[j];
-		lbuff_move_next(&j, &first);
+		prev = root->buf[j];
+		lbuff_move_next(&j, &root);
 		++i;
 	}
-	BSQ_ASSERT(bsq_next(reader) == '\n', "Expected EOL");
+	BSQ_ASSERT(bsq_next(reader) == '\n', PARSE_EXPECT("EOL"));
 }
 
 void			bsq_solve_next(t_reader *reader, t_bsq_info *info, t_u32 *line)
@@ -82,7 +82,7 @@ void			bsq_solve_next(t_reader *reader, t_bsq_info *info, t_u32 *line)
 			bsq_square_check(info, (t_u32)i, l, line[i]);
 			prev = tmp;
 		}
-		BSQ_ASSERT(bsq_next(reader) == '\n', "Expected EOL");
+		BSQ_ASSERT(bsq_next(reader) == '\n', PARSE_EXPECT("EOL"));
 	}
 }
 

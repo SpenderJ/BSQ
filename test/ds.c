@@ -16,7 +16,7 @@
 #include "bsq.h"
 
 int main(void) {
-	t_u8 matrix[BUFF_SIZE] = {0};
+	t_u8 matrix[BUF_SIZE] = {0};
 
 	matrix_set(matrix, 15);
 	matrix_set(matrix, 48);
