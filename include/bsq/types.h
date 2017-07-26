@@ -19,7 +19,7 @@
 
 # include "utils.h"
 
-# define BUFF_SIZE (8192)
+# define BUFF_SIZE (4096)
 # define TRUE (1)
 # define FALSE (0)
 

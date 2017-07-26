@@ -18,22 +18,25 @@ inline t_reader	bsq_reader(t_u8 fd)
 	t_reader reader;
 
 	reader.len = (t_u16)read(fd, reader.buffer, BUFF_SIZE);
+	reader.buffer[reader.len] = 0;
 	reader.i = 0;
 	reader.fd = fd;
 	return (reader);
 }
 
-inline t_reader	*bsq_try_read(t_reader *reader)
+inline void		bsq_try_read(t_reader *reader)
 {
-	if (reader->i >= reader->len)
-	{
-		reader->len = (t_u16)read(reader->fd, reader->buffer, BUFF_SIZE);
-		reader->i = 0;
-	}
-	return (reader);
+	reader->len = (t_u16)read(reader->fd, reader->buffer, BUFF_SIZE);
+	reader->buffer[reader->len] = 0;
+	reader->i = 0;
 }
 
 inline t_u8		bsq_next(t_reader *reader)
 {
-	return bsq_try_read(reader)->buffer[reader->i++];
+	t_u8 c;
+
+	if ((c = reader->buffer[reader->i++]))
+		return (c);
+	bsq_try_read(reader);
+	return reader->buffer[reader->i++];
 }
