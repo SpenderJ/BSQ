@@ -78,7 +78,8 @@ inline t_u32		bsq_read_first(t_reader *reader, t_bsq_info *info,
 		bsq_validate_char(info, c);
 		if (lbuff_alloca_next((t_u16)(i / 8), &buff))
 			i = 0;
-		matrix_set(buff->buff, i, (t_bool) (c == info->empty));
+		if (c == info->empty)
+			matrix_set(buff->buff, i);
 		i++;
 		len++;
 	}

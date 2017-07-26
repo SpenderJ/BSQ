@@ -12,10 +12,9 @@
 
 #include "bsq/ds.h"
 
-inline void		matrix_set(t_u8 *matrix, t_u32 pos, t_bool data)
+inline void		matrix_set(t_u8 *matrix, t_u32 pos)
 {
-	if (data)
-		matrix[pos / 8] |= (1 << (pos % 8));
+	matrix[pos / 8] |= (1 << (pos % 8));
 }
 
 inline t_bool	matrix_get(t_u8 *matrix, t_u32 pos)

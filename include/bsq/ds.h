@@ -17,7 +17,7 @@
 
 # define S_BUFF_SIZE (BUFF_SIZE - sizeof(struct s_lbuff*))
 
-void			matrix_set(t_u8 *matrix, t_u32 pos, t_bool data);
+void			matrix_set(t_u8 *matrix, t_u32 pos);
 t_bool			matrix_get(t_u8 *matrix, t_u32 pos);
 
 
