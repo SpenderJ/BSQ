@@ -69,7 +69,7 @@ inline t_u32	bsq_read_first(t_reader *reader, t_info *info, t_lbuf **first,
 	lbuf_alloca_next(lx, &buff);
 	*first = buff;
 	len = -1;
-	while ((c = bsq_next(reader)) != '\n' && ++len)
+	while (++len >= 0 && (c = bsq_next(reader)) != '\n')
 	{
 		if (lbuf_alloca_next((t_u16)(lx / 8), &buff))
 			lx = 0;
