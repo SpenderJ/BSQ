@@ -15,8 +15,8 @@
 
 int		main(int ac, char **av)
 {
-	t_reader reader;
-	t_bsq_info info;
+	t_reader	reader;
+	t_bsq_info	info;
 
 	if (ac >= 2)
 		reader = bsq_reader((t_u8)open(av[1], O_RDONLY));

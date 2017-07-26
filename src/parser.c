@@ -12,11 +12,6 @@
 
 #include "bsq/parser.h"
 
-inline void			bsq_validate_char(t_bsq_info *info, char c)
-{
-	BSQ_ASSERT(c == info->obstacle || c == info->empty, "Bad char in map");
-}
-
 inline void			bsq_validate_info(t_bsq_info *info)
 {
 	BSQ_ASSERT(info->height > 0,
@@ -75,11 +70,12 @@ inline t_u32		bsq_read_first(t_reader *reader, t_bsq_info *info,
 	len = 0;
 	while ((c = bsq_next(reader)) != '\n')
 	{
-		bsq_validate_char(info, c);
 		if (lbuff_alloca_next((t_u16)(i / 8), &buff))
 			i = 0;
 		if (c == info->empty)
 			matrix_set(buff->buff, i);
+		else
+			BSQ_ASSERT(c == info->obstacle, PARSE_ERROR);
 		i++;
 		len++;
 	}

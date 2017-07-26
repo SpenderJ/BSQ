@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bsq/utils.h"
 #include "bsq/types.h"
+#include "bsq/error.h"
 
 inline void		bsq_exit(char *msg, int size)
 {

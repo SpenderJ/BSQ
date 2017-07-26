@@ -11,14 +11,17 @@
 /* ************************************************************************** */
 
 #include "bsq/io.h"
-#include "bsq/ds.h"
 
 inline t_reader	bsq_reader(t_u8 fd)
 {
-	t_reader reader;
+	t_reader	reader;
+	ssize_t		rlen;
 
-	reader.len = (t_u16)read(fd, reader.buffer, BUFF_SIZE);
-	reader.buffer[reader.len] = 0;
+	BSQ_ASSERT(fd >= 0, "open failed.\n");
+	BSQ_ASSERT((rlen =
+		read(fd, reader.buffer, BUFF_SIZE)) != -1, "read failed.\n");
+	reader.len = (t_u16)rlen;
+	reader.buffer[reader.len] = '\0';
 	reader.i = 0;
 	reader.fd = fd;
 	return (reader);
@@ -26,12 +29,15 @@ inline t_reader	bsq_reader(t_u8 fd)
 
 inline t_u8		bsq_next(t_reader *reader)
 {
-	t_u8 c;
+	t_u8	c;
+	ssize_t	rlen;
 
 	if ((c = reader->buffer[reader->i++]))
 		return (c);
-	reader->len = (t_u16)read(reader->fd, reader->buffer, BUFF_SIZE);
-	reader->buffer[reader->len] = 0;
+	BSQ_ASSERT((rlen =
+		read(reader->fd, reader->buffer, BUFF_SIZE)) != -1, "read failed.\n");
+	reader->len = (t_u16)rlen;
+	reader->buffer[reader->len] = '\0';
 	reader->i = 0;
 	return reader->buffer[reader->i++];
 }

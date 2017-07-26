@@ -10,20 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BSQ_UTILS_H
-# define FT_BSQ_UTILS_H
+#ifndef FT_BSQ_ERROR_H
+# define FT_BSQ_ERROR_H
 
-# include "error.h"
+# define BSQ_ASSERT(e, m) ((void)(((e)?(0):bsq_exit(m,sizeof(m)-1))))
 
-# ifndef SUCCESS
-#  define SUCCESS (0)
+# ifdef STANDARD_ERRORS
+#  define MAP_ERROR "map error\n"
+#  define PARSE_ERROR MAP_ERROR
+#  define PARSE_EXPECT MAP_ERROR
+#  define ALLOC_FAIL "\n"
+# else
+#  define PARSE_ERROR "Error: Unexpected char found in the proceeded map.\n"
+#  define PARSE_EXPECT "Error: Unexpected char found int the proceeded map.\n"
+#  define ALLOC_FAIL "Error: Allocation failure.\n"
 # endif
 
-# ifndef FAILURE
-#  define FAILURE (1)
-# endif
-
-# define UNUSED(x) ((void)(x))
-# define MIN(a, b) ((a) < (b) ? (a) : (b))
+void	bsq_exit(char *msg, int size);
 
 #endif
