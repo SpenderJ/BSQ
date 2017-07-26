@@ -15,18 +15,12 @@
 
 inline void		bsq_validate_info(t_info *info)
 {
-	BSQ_ASSERT(info->height > 0,
-		"height is invalid\n");
-	BSQ_ASSERT(info->empty != 0,
-		"empty marker is missing\n");
-	BSQ_ASSERT(info->obst != 0,
-		"obst marker is missing\n");
-	BSQ_ASSERT(info->square != 0,
-		"square marker is missing\n");
-	BSQ_ASSERT(info->square != info->obst,
-		"Two markers have same identity\n");
-	BSQ_ASSERT(info->square != info->empty,
-		"Two markers have same identity\n");
+	BSQ_ASSERT(info->height > 0, PARSE_ERR);
+	BSQ_ASSERT(info->empty != 0, PARSE_ERR);
+	BSQ_ASSERT(info->obst != 0, PARSE_ERR);
+	BSQ_ASSERT(info->square != 0, PARSE_ERR);
+	BSQ_ASSERT(info->square != info->obst, PARSE_ERR);
+	BSQ_ASSERT(info->square != info->empty, PARSE_ERR);
 }
 
 inline t_info	bsq_read_info(t_reader *reader)
