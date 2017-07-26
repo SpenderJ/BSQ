@@ -6,16 +6,21 @@
 #    By: pguthaus <pguthaus@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/26 14:33:05 by pguthaus          #+#    #+#              #
-#    Updated: 2017/07/26 22:10:36 by dde-jesu         ###   ########.fr        #
+#    Updated: 2017/07/26 23:05:56 by dde-jesu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bsq
 
-CC = CC# C compiler
+CC = cc# C compiler
+CFLAGS = -I ./include/ -Wall -Werror -Wextra# C compiler flags
 
-CFLAGS = -I ./include/ -Wall -Werror -Wextra -g# C compiler flags
+RESET = \033[0m
+PURPLE = \033[1;35m
+GREEN = \033[1;32m
+YELLOW = \033[1;33m
 
+# Paths
 # Paths
 
 SRCS =		src/bsq.c		\
@@ -29,31 +34,24 @@ SRCS =		src/bsq.c		\
 
 OBJS = $(SRCS:.c=.o)
 
-all:
-			@make $(NAME)
+all: $(NAME)
 
 $(NAME):	$(OBJS)
 			$(CC) -o $(NAME) $(OBJS) $(CFLAGS)
-
-$(OUT_DIR):
-	@echo "\033[1;33mCreating objects files directory..."
-	@mkdir -p $(OUT_DIR)
-	@echo "\033[1;32mObject files directory has been created !"
-
 clean:
-	@echo "\033[1;33mDeleting objects files..."
+	@echo "$(YELLOW)Deleting objects files...$(RESET)"
 	@rm -rf $(OBJS)
-	@echo "\033[1;32mObject files (based in 'src/') have been deleted !"
+	@echo "$(GREEN)Object files (based in 'src/') have been deleted !$(RESET)"
 
 fclean: clean
-	@echo "\033[1;33mDeleting executable..."
+	@echo "$(YELLOW)Deleting executable...$(RESET)"
 	@rm -f $(NAME)
-	@echo "\033[1;32mThe executable '$(NAME)' has been deleted !"
+	@echo "$(GREEN)The executable '$(NAME)' has been deleted !$(RESET)"
 
 licorne:
-	@echo "\033[1;35mSearching for the universal answer..."
-	@echo "\033[1;35mThe answer is... Hmmmmm... Maybe... No... OHHHH !!! The answer is: "
-	@echo "🦄"
+	@echo "$(PURPLE)Searching for the universal answer...$(RESET)"
+	@echo "$(PURPLE)The answer is... Hmmmmm... Maybe... No... OHHHH !!! The answer is: $(RESET)"
+	@echo "🦄 42"
 
 re: fclean all
 
