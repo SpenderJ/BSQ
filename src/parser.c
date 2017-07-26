@@ -19,11 +19,11 @@ inline void		bsq_validate_info(t_info *info)
 		"height is invalid\n");
 	BSQ_ASSERT(info->empty != 0,
 		"empty marker is missing\n");
-	BSQ_ASSERT(info->obstacle != 0,
-		"obstacle marker is missing\n");
+	BSQ_ASSERT(info->obst != 0,
+		"obst marker is missing\n");
 	BSQ_ASSERT(info->square != 0,
 		"square marker is missing\n");
-	BSQ_ASSERT(info->square != info->obstacle,
+	BSQ_ASSERT(info->square != info->obst,
 		"Two markers have same identity\n");
 	BSQ_ASSERT(info->square != info->empty,
 		"Two markers have same identity\n");
@@ -41,7 +41,7 @@ inline t_info	bsq_read_info(t_reader *reader)
 	while ((c = bsq_next(reader)) != '\n' && i < 13)
 		buff[i++] = c;
 	info.square = buff[--i];
-	info.obstacle = buff[--i];
+	info.obst = buff[--i];
 	info.empty = buff[--i];
 	info.x = 0;
 	info.y = 0;
@@ -79,7 +79,7 @@ inline t_u32	bsq_read_first(t_reader *reader, t_info *info, t_lbuf **first, t_ma
 		}
 		else
 		{
-			BSQ_ASSERT(c == info->obstacle, PARSE_ERROR);
+			BSQ_ASSERT(c == info->obst, PARSE_ERR);
 		}
 		lx++;
 		len++;

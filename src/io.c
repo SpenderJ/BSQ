@@ -53,7 +53,7 @@ inline void		bsq_print_at(t_bool val, t_info *info, t_u32 e)
 	else if (val)
 		write(1, &info->empty, 1);
 	else
-		write(1, &info->obstacle, 1);
+		write(1, &info->obst, 1);
 	if (((e + 1) % info->width) == 0)
 		write(1, "\n", 1);
 }

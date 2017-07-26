@@ -31,7 +31,7 @@ typedef t_u8			t_bool;
 typedef struct			s_bsq_info
 {
 	t_u8	empty;
-	t_u8	obstacle;
+	t_u8	obst;
 	t_u8	square;
 	t_u32	height;
 	t_u32	width;

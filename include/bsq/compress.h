@@ -38,8 +38,8 @@ typedef struct	s_matrix
 **   6 bit: number of repetitions
 **/
 
-t_matrix				matrix();
-extern t_bool		matrix_write(t_matrix *matrix, t_bool value);
+extern t_matrix	matrix();
+extern t_bool	matrix_write(t_matrix *matrix, t_bool value);
 void			matrix_print(t_matrix *matrix, t_info *info);
 
 #endif

@@ -13,8 +13,9 @@
 #include "bsq/types.h"
 #include "bsq/error.h"
 
-extern inline void		bsq_exit(char *msg, int size)
+inline unsigned int	bsq_exit(char *msg, int size)
 {
 	UNUSED(size = (signed)write(2, msg, (size_t)size));
 	exit(1);
+	return (0);
 }
