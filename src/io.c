@@ -6,7 +6,7 @@
 /*   By: alucas- <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 13:30:19 by alucas-           #+#    #+#             */
-/*   Updated: 2017/07/24 13:31:51 by alucas-          ###   ########.fr       */
+/*   Updated: 2017/07/26 22:21:18 by dde-jesu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,23 @@ inline t_u8		bsq_next(t_reader *reader)
 	reader->cursor = 0;
 	return (reader->buf[reader->cursor++]);
 }
-
-inline void		bsq_print_at(t_bool val, t_info *info, t_u32 e)
+inline t_writer	bsq_writer()
 {
-	t_u32 x;
-	t_u32 y;
+	t_writer	writer;
 
-	x = e % info->width;
-	y = e / info->width;
-	if (x <= info->x && y <= info->y &&
-		x >= (info->x - info->m + 1) && y >= (info->y - info->m + 1))
-		write(1, &info->square, 1);
-	else if (val)
-		write(1, &info->empty, 1);
-	else
-		write(1, &info->obst, 1);
-	if (((e + 1) % info->width) == 0)
-		write(1, "\n", 1);
+	writer.cursor = 0;
+	return (writer);
 }
+
+inline void		bsq_idea(t_writer *writer)
+{
+	write(0 , writer->buf, writer->cursor);
+}
+
+inline void		bsq_write(t_writer *writer, char c)
+{
+	if (writer->cursor >= 2)
+		bsq_idea(writer);
+	writer->buf[writer->cursor++] = c;
+}
+
