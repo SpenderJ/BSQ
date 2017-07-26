@@ -27,16 +27,19 @@ int		main(int ac, char **av)
 			if (bsq_reader(&reader, (t_u8)open(av[i], O_RDONLY)) == NULL ||
 				bsq_info_ctor(&info, &reader) == NULL ||
 				bsq_solve(&reader, &info) == FALSE)
-				write(1, SNS(PARSE_ERR));
+				write(2, SNS(PARSE_ERR));
+			else
+				BSQ_ASSERT(close(reader.fd) != -1, IO_FAIL);
 			if (i < ac - 1)
 				write(1, SNS("\n"));
+
 		}
 	else
 	{
 		if (bsq_reader(&reader, 0) == NULL ||
 			bsq_info_ctor(&info, &reader) == NULL ||
 			bsq_solve(&reader, &info) == FALSE)
-			write(1, SNS(PARSE_ERR));
+			write(2, SNS(PARSE_ERR));
 	}
 	return (EXIT_SUCCESS);
 }

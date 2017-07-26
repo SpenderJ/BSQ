@@ -101,9 +101,10 @@ t_bool		bsq_solve(t_reader *reader, t_info *info)
 		return (FALSE);
 	info->width = (t_u32)len;
 	BSQ_ASSERT(line = malloc(len * sizeof(t_u32)), ALLOC_FAIL);
-	if (bsq_solve_2nd((void *[2]){reader, info}, line, start, &m) == FALSE)
+	if (info->height > 1 &&
+		bsq_solve_2nd((void *[2]){reader, info}, line, start, &m) == FALSE)
 		return (FALSE);
-	if (bsq_solve_next(reader, info, line, &m) == FALSE)
+	if (info->height > 2 && bsq_solve_next(reader, info, line, &m) == FALSE)
 		return (FALSE);
 	free(line);
 	matrix_print(&m, info);
