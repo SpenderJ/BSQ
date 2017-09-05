@@ -10,13 +10,14 @@ BSQ is a file parser, our program will receive one or more files, which are maps
 
 ## Running the tests
 
-Our project mark is :  |
-
+Our project mark is : 100 / 100 |
+We have be doing a lot of tests, it never fail.
+We've also been testing it against a lot of other bsq, our never lost :) .
 
 If you want to test our project, you just have to
 
 ```
-./bsq [Name of my map] [More names?]
+./bsq [Name of my map] [More names feel free to add as much as you want?]
 ```
 
 ### And coding style tests
